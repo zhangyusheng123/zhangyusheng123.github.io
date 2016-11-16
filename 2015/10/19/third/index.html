@@ -6,14 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: div,javascript | 漫步人生路</title>
+  <title>神奇的css！竟然可以这样玩转表格 | 漫步人生路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="漫步人生路">
-<meta property="og:url" content="http://yoursite.com/tags/div-javascript/index.html">
+  <meta name="description" content="这是在对一个博客模板进行移动端适配时遇到的一个场景。html结构如下：
+&amp;lt;table width=100% class=&amp;quot;Framework&amp;quot; cellspacing=&amp;quot;0&amp;quot; cellpadding=&amp;quot;0&amp;quot;&amp;gt;
+    &amp;lt;tr&amp;gt;.....&amp;lt;/tr&amp;gt;
+    &amp;lt;tr&amp;gt;
+        &amp;lt;t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="神奇的css！竟然可以这样玩转表格">
+<meta property="og:url" content="http://yoursite.com/2015/10/19/third/index.html">
 <meta property="og:site_name" content="漫步人生路">
+<meta property="og:description" content="这是在对一个博客模板进行移动端适配时遇到的一个场景。html结构如下：
+&amp;lt;table width=100% class=&amp;quot;Framework&amp;quot; cellspacing=&amp;quot;0&amp;quot; cellpadding=&amp;quot;0&amp;quot;&amp;gt;
+    &amp;lt;tr&amp;gt;.....&amp;lt;/tr&amp;gt;
+    &amp;lt;tr&amp;gt;
+        &amp;lt;t">
+<meta property="og:updated_time" content="2016-11-16T02:53:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="漫步人生路">
+<meta name="twitter:title" content="神奇的css！竟然可以这样玩转表格">
+<meta name="twitter:description" content="这是在对一个博客模板进行移动端适配时遇到的一个场景。html结构如下：
+&amp;lt;table width=100% class=&amp;quot;Framework&amp;quot; cellspacing=&amp;quot;0&amp;quot; cellpadding=&amp;quot;0&amp;quot;&amp;gt;
+    &amp;lt;tr&amp;gt;.....&amp;lt;/tr&amp;gt;
+    &amp;lt;tr&amp;gt;
+        &amp;lt;t">
   
     <link rel="alternative" href="/atom.xml" title="漫步人生路" type="application/atom+xml">
   
@@ -137,54 +153,110 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-third" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/10/04/second/" class="archive-article-date">
-  	<time datetime="2015-10-04T13:29:18.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-10-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/04/second/">超实用的知识点</a>
+    <h1 class="article-title" itemprop="name">
+      神奇的css！竟然可以这样玩转表格
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/div-javascript/">div,javascript</a></li></ul>
-	</div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是在对一个博客模板进行移动端适配时遇到的一个场景。html结构如下：</p>
+<pre><code>&lt;table width=100% class=&quot;Framework&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+    &lt;tr&gt;.....&lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td class=&quot;LeftCell&quot;&gt;..&lt;/td&gt;                    &lt;td class=&quot;MainCell&quot; width=&quot;100%&quot;&gt;..&lt;/td&gt;   
+    &lt;/tr&gt;
+    &lt;tr&gt;.....&lt;/tr&gt;
+&lt;/table&gt;
+</code></pre><p>要解决的问题是如何在不修改任何html代码的情况下，仅仅通过css实现下面的效果：</p>
+<p>1）改变它们的显示顺序，.MainCell显示在前，.LeftCell显示在后（与html结构中的顺序相反）。</p>
+<p>2）让它们分行显示。 .MainCell与.LeftCell是表格的单元格，它们默认是以列的方式排列在一行显示，如果解决了第1个问题，那就是.MainCell在左，.LeftCell在右；让它们分行方式显示就是.MainCell显示在上面，.LeftCell显示在下面。</p>
+<p>要解决这2个问题，首先要解决1个选择器的问题 —— 如何在没有id与class的情况下，让添加的样式只针对表格（table）的第2行（tr）生效。</p>
+<p>css3中有个伪类选择器可解决这个问题，它就是 :nth-child() （参考资料：CSS3 :nth-child()伪类选择器），于是就有了下面的选择器：</p>
+<pre><code>.Framework tr:nth-child(2){
+}
+</code></pre><p>接下来解决上面的第1个问题 —— 改变元素的显示顺序。</p>
+<p>css3中引人了一个新的布局模型 —— flex （弹性盒模型，flexible box的缩写，参考资料：深入理解CSS弹性盒模型flex）。使用flex布局，可以通过order控制显示顺序（order值小的显示在前面）。</p>
+<p>于是，通过下面的css代码将.LeftCell与.MainCell改为flex布局：</p>
+<pre><code>.Framework tr:nth-child(2){
+    display: flex;
+}
+</code></pre><p>要将.MainCell显示在.LeftCell之前，只需给.LeftCell的order设置一个大于0的值（默认是0，值越大显示越后）即可：</p>
+<pre><code>.LeftCell{
+    order:1;
+}
+</code></pre><p>第1个问题解决。</p>
+<p>紧接着解决第2个问题，让.MainCell与.LeftCell分行显示，也就是显示.MainCell之后，换一行显示.LeftCell。</p>
+<p>css3中强大的flex布局继续发挥作用，通过flex-wrap可以控制flex布局中元素的换行方式，对于我们要解决的问题，使用”wrap”即可：</p>
+<pre><code>.Framework tr:nth-child(2){
+    flex-wrap: wrap;
+}
+</code></pre><p>这篇文章的亮点在于flex，想了解更多 请登录 <a href="http://www.cnblogs.com/xiaohuochai/p/5323146.html" target="_blank" rel="external">http://www.cnblogs.com/xiaohuochai/p/5323146.html</a></p>
 
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2015/10/19/third/" class="archive-article-date">
+  	<time datetime="2015-10-19T02:35:11.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-10-19</time>
+</a>
+      
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2015/10/04/second/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">超实用的知识点</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
 
 
       </div>
@@ -204,9 +276,9 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
