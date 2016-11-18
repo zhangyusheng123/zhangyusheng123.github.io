@@ -6,30 +6,39 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>tab选项卡 | 漫步人生路</title>
+  <title>stringify | 漫步人生路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前段时间有个网友问我京东上的那个动态效果图是怎么做出来的,其实这种效果很常见的在很多网站上都有看到，所以我再博客中做了这么一篇简易直接的效果
-Js代码如下：
-var btn=document.querySelectorAll(&amp;quot;ol li&amp;quot;);
-var pic=document.querySelectorAll(&amp;quot;ul li&amp;quot;);
-var left=docu">
+  <meta name="description" content="js数据类型：
+字符串、数字、布尔、数组、对象、Null、Undefined
+js Object
+var data = {
+    &amp;quot;name&amp;quot;:&amp;quot;yfs&amp;quot;,
+    &amp;quot;age&amp;quot;:28,
+    &amp;quot;boy&amp;quot;:true,
+    &amp;quot;language&amp;quot;:[&amp;quot;chinese&amp;quot;, &amp;qu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tab选项卡">
-<meta property="og:url" content="http://yoursite.com/2015/11/28/tab/index.html">
+<meta property="og:title" content="stringify">
+<meta property="og:url" content="http://yoursite.com/2016/11/18/stringify/index.html">
 <meta property="og:site_name" content="漫步人生路">
-<meta property="og:description" content="前段时间有个网友问我京东上的那个动态效果图是怎么做出来的,其实这种效果很常见的在很多网站上都有看到，所以我再博客中做了这么一篇简易直接的效果
-Js代码如下：
-var btn=document.querySelectorAll(&amp;quot;ol li&amp;quot;);
-var pic=document.querySelectorAll(&amp;quot;ul li&amp;quot;);
-var left=docu">
-<meta property="og:updated_time" content="2016-11-17T03:10:36.000Z">
+<meta property="og:description" content="js数据类型：
+字符串、数字、布尔、数组、对象、Null、Undefined
+js Object
+var data = {
+    &amp;quot;name&amp;quot;:&amp;quot;yfs&amp;quot;,
+    &amp;quot;age&amp;quot;:28,
+    &amp;quot;boy&amp;quot;:true,
+    &amp;quot;language&amp;quot;:[&amp;quot;chinese&amp;quot;, &amp;qu">
+<meta property="og:updated_time" content="2016-11-18T01:12:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tab选项卡">
-<meta name="twitter:description" content="前段时间有个网友问我京东上的那个动态效果图是怎么做出来的,其实这种效果很常见的在很多网站上都有看到，所以我再博客中做了这么一篇简易直接的效果
-Js代码如下：
-var btn=document.querySelectorAll(&amp;quot;ol li&amp;quot;);
-var pic=document.querySelectorAll(&amp;quot;ul li&amp;quot;);
-var left=docu">
+<meta name="twitter:title" content="stringify">
+<meta name="twitter:description" content="js数据类型：
+字符串、数字、布尔、数组、对象、Null、Undefined
+js Object
+var data = {
+    &amp;quot;name&amp;quot;:&amp;quot;yfs&amp;quot;,
+    &amp;quot;age&amp;quot;:28,
+    &amp;quot;boy&amp;quot;:true,
+    &amp;quot;language&amp;quot;:[&amp;quot;chinese&amp;quot;, &amp;qu">
   
     <link rel="alternative" href="/atom.xml" title="漫步人生路" type="application/atom+xml">
   
@@ -153,7 +162,7 @@ var left=docu">
 </nav>
 
       <div class="body-wrap">
-        <article id="post-tab" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-stringify" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -163,7 +172,7 @@ var left=docu">
         
   
     <h1 class="article-title" itemprop="name">
-      tab选项卡
+      stringify
     </h1>
   
 
@@ -171,145 +180,50 @@ var left=docu">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前段时间有个网友问我京东上的那个动态效果图是怎么做出来的,其实这种效果很常见的在很多网站上都有看到，所以我再博客中做了这么一篇简易直接的效果</p>
-<p>Js代码如下：</p>
-<pre><code>var btn=document.querySelectorAll(&quot;ol li&quot;);
-var pic=document.querySelectorAll(&quot;ul li&quot;);
-var left=document.querySelector(&quot;.left&quot;);
-var right=document.querySelector(&quot;.right&quot;);
-var num=0;
-for(var i=0;i&lt;btn.length;i++){
-    btn[i].index=i;
-btn[i].onmouseover=function(){
-    for(var i=0;i&lt;btn.length;i++){
-        btn[i].className=&quot;&quot;;
-        pic[i].className=&quot;&quot;;
+        <p>js数据类型：</p>
+<pre><code>字符串、数字、布尔、数组、对象、Null、Undefined
+</code></pre><p>js Object</p>
+<pre><code>var data = {
+    &quot;name&quot;:&quot;yfs&quot;,
+    &quot;age&quot;:28,
+    &quot;boy&quot;:true,
+    &quot;language&quot;:[&quot;chinese&quot;, &quot;english&quot;],
+    &quot;address&quot;:{
+    &quot;provice&quot;:&quot;shanxi&quot;,
+    &quot;city&quot;:&quot;xian&quot;
     }
-    btn[this.index].className=&quot;active&quot;;
-    pic[this.index].className=&quot;active&quot;;
-}
-}
+};
+</code></pre><p>JSON.stringify();</p>
+<pre><code>var jsonString = JSON.stringify(data);
+console.log(jsonString);
+console.log(typeof(jsonString));
 
-left.onclick=function(){
-    num--;
-    if(num&lt;0){
-        num=btn.length-1;
-}
-for(var i=0;i&lt;btn.length;i++){
-    btn[i].className=&quot;&quot;;
-    pic[i].className=&quot;&quot;;
-}
-btn[num].className=&quot;active&quot;;
-pic[num].className=&quot;active&quot;;
-}
+    //结果：
+ {&quot;name&quot;:&quot;yfs&quot;,&quot;age&quot;:28,&quot;boy&quot;:true,&quot;language&quot;:    [&quot;chinese&quot;,&quot;english&quot;],&quot;address&quot;:{&quot;p
+rovice&quot;:&quot;shanxi&quot;,&quot;city&quot;:&quot;xian&quot;}}
 
-right.onclick=function(){
-    num++;
-    if(num&gt;btn.length-1){
-        num=0;
-}
-for(var i=0;i&lt;btn.length;i++){
-    btn[i].className=&quot;&quot;;
-    pic[i].className=&quot;&quot;;
-}
-    btn[num].className=&quot;active&quot;;
-    pic[num].className=&quot;active&quot;;
-}
-</code></pre><p>js这块仔细想想起始逻辑还好只要你布局没问题，这块稍微注意一下应给就能写出来</p>
-<p>CSS代码块</p>
-<pre><code>*{
-        padding: 0;
-        margin:0;
-    }
-    ol,ul{
-        list-style: none;
-    }
-    .tab{
-        width: 500px;
-        height: 400px;
-        margin: 50px auto;
-        position: relative;
-        border: 1px solid red;
-    }
-    .btn{
-        width: 50px;
-        height: 70px;
-        background: black;
-        position:absolute;
-        color: white;
-        opacity: 0.5;
-        line-height: 70px;
-        text-align: center; 
-        top: 165px;
-        z-index: 100;
-        font-size: 30px;
-    }
-    .left{
-        left:0px;
-    }
-    .right{
-        right:0px;
-    }
-    .tab ul{
-        width: 500px;
-        height: 400px;
-        overflow: hidden;
-        position: absolute;
-    }
-    .tab ul li{
-        position: absolute;
-        width: 500px;
-        height: 400px;
-        opacity: 0;
-    }
-    .tab ul .active{
-        opacity: 1;
-    }
-    .tab ol{
-        position: absolute;
-        width: 200px;
-        height: 30px;
-        bottom: 10px;
-        background: black;
-        left: 50%;
-        margin-left: -100px;
-    }
-    .tab ol li{
-        width: 30px;
-        height: 30px;
-        float: left;
-        margin-left: 16px;
-        border-radius: 50%;
-        background: cyan;
-    }
-    .tab ol .active{
-        background: gray;
-    }
-</code></pre><p>页面布局是很重要的，他决定你在写JS时候的简单或复杂</p>
-<pre><code>&lt;div class=&quot;tab&quot;&gt;
-    &lt;div class=&quot;btn left&quot;&gt;&amp;lt&lt;/div&gt;
-    &lt;div class=&quot;btn right&quot;&gt;&amp;gt&lt;/div&gt;
-    &lt;ul&gt;
-        &lt;li class=&quot;active&quot;&gt;&lt;img src=&quot;image1.jpg&quot;&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;img src=&quot;image2.jpg&quot;&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;img src=&quot;image3.jpg&quot;&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;img src=&quot;image4.jpg&quot;&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;ol&gt;
-        &lt;li class=&quot;active&quot;&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;/li&gt;
-    &lt;/ol&gt;
-&lt;/div&gt;
-</code></pre><p>上面这些代码就是一个完整的选项卡 这也能算是个模板 在其他地方一样使用；tab选项卡对于初学者有很好的体验</p>
+//类型：string
+var a = &apos;{&quot;name&quot;:&quot;yfs&quot;,&quot;age&quot;:    28,&quot;boy&quot;:true,&quot;language&quot;:[&quot;chinese&quot;,&quot;english&quot;],&quot;address&quot;:{&quot;p
+rovice&quot;:&quot;shanxi&quot;,&quot;city&quot;:&quot;xian&quot;}}&apos;;
+</code></pre><p>JSON.parse();</p>
+<pre><code>var jsObject = JSON.parse(jsonString);
+console.log(jsObject);
+console.log(typeof(jsObject));
 
+//结果：
+{ name: &apos;yfs&apos;,
+  age: 28,
+  boy: true,language: 
+  [ &apos;chinese&apos;, &apos;english&apos; ],
+  address: { provice: &apos;shanxi&apos;, city: &apos;xian&apos; } }
+//类型：object
+</code></pre>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2015/11/28/tab/" class="archive-article-date">
-  	<time datetime="2015-11-28T06:34:41.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-11-28</time>
+      <a href="/2016/11/18/stringify/" class="archive-article-date">
+  	<time datetime="2016-11-18T01:05:09.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-18</time>
 </a>
       
       
@@ -322,18 +236,9 @@ for(var i=0;i&lt;btn.length;i++){
   
 <nav id="article-nav">
   
-    <a href="/2016/11/18/stringify/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          stringify
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/11/16/four/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">canvas动态制作表盘</div>
+    <a href="/2015/11/28/tab/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">tab选项卡</div>
       <i class="icon-circle-right"></i>
     </a>
   
