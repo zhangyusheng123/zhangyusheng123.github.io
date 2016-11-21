@@ -6,14 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2016 | 漫步人生路</title>
+  <title>JavaScript基础 | 漫步人生路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="漫步人生路">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+  <meta name="description" content="JavaScript是区分大小写的语言，关键字、变量、函数名和所有的标识符都必须采用一致的大小写。
+标识符：第一字符必须是一个字母、下划线(_)或一个美元符号($)，其他字符可以是字母、下划线、美元符号或数字，不能把关键字、保留字、true、false 和 null 作为标识符。
+##数据类型Undefined 类型：定义变量时，尽可能的不要只声明，不赋值。
+Null 类型：如果定义的变量准备在将">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript基础">
+<meta property="og:url" content="http://yoursite.com/2016/02/03/Project/index.html">
 <meta property="og:site_name" content="漫步人生路">
+<meta property="og:description" content="JavaScript是区分大小写的语言，关键字、变量、函数名和所有的标识符都必须采用一致的大小写。
+标识符：第一字符必须是一个字母、下划线(_)或一个美元符号($)，其他字符可以是字母、下划线、美元符号或数字，不能把关键字、保留字、true、false 和 null 作为标识符。
+##数据类型Undefined 类型：定义变量时，尽可能的不要只声明，不赋值。
+Null 类型：如果定义的变量准备在将">
+<meta property="og:updated_time" content="2016-11-21T11:00:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="漫步人生路">
+<meta name="twitter:title" content="JavaScript基础">
+<meta name="twitter:description" content="JavaScript是区分大小写的语言，关键字、变量、函数名和所有的标识符都必须采用一致的大小写。
+标识符：第一字符必须是一个字母、下划线(_)或一个美元符号($)，其他字符可以是字母、下划线、美元符号或数字，不能把关键字、保留字、true、false 和 null 作为标识符。
+##数据类型Undefined 类型：定义变量时，尽可能的不要只声明，不赋值。
+Null 类型：如果定义的变量准备在将">
   
     <link rel="alternative" href="/atom.xml" title="漫步人生路" type="application/atom+xml">
   
@@ -137,103 +150,167 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-Project" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
+    <h1 class="article-title" itemprop="name">
+      JavaScript基础
+    </h1>
   
+
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
       
+        <p>JavaScript是区分大小写的语言，关键字、变量、函数名和所有的标识符都必须采用一致的大小写。</p>
+<p>标识符：第一字符必须是一个字母、下划线(_)或一个美元符号($)，其他字符可以是字母、下划线、美元符号或数字，不能把关键字、保留字、true、false 和 null 作为标识符。</p>
+<p>##数据类型<br>Undefined 类型：定义变量时，尽可能的不要只声明，不赋值。</p>
+<p>Null 类型：如果定义的变量准备在将来用于保存对象，那么最好将该变量初始化为 null。</p>
+<p>Boolean 类型：true 和 false。</p>
+<p>Number 类型：整型和浮点型。</p>
+<pre><code>Number()：用于任何数据类型。null和空返回0，undefined和字符串（包含）返回NaN。 
+parseInt()：只能将字符串转成数值。字符串（开头）返回NaN，小数点不是数值，会被去掉。
+parseFloat()：浮点转换，只认一个小数点。
+</code></pre><p>String 类型：</p>
+<pre><code>toString()：可以把值转换成字符串。（不能转换null和undefined）
+String()：能够将任何类型的值转换为字符串。
+</code></pre><p>Array 类型：其实就是一组数据和功能的集合。</p>
+<pre><code>push()：可以接收任意数量的参数，把它们逐个添加到数组的末尾，并返回修改后数组的长度。
+pop()：从数组末尾移除最后一个元素，减少数组的 length 值，然后返回移除的元素。
+shift()：从数组前端移除一个元素，并返回移除的元素。
+unshift()：为数组的前端添加一个元素，并返回移除的元素。PS：IE 浏览器对unshift()方法总是返回undefined 而不是数组的新长度。
+sort() ：从小到大排序，源数组也被从小到大排序，返回排序后的数组。
+reverse() ：逆向排序，源数组也被逆向排序，返回排序后的数组。
+sort 方法的默认排序在数字排序上有些问题，因为数字排序和数字字符串排序的算法是一样的。我们必须修改这一特征，修改的方式，就是给 sort(参数)方法传递一个函数参数。
+</code></pre><p>函数</p>
+<p>JavaScript 中的函数，没有像其他高级语言那种函数重载功能。（重载：根据参数选择相同函数名而参数不同的函数）</p>
+<p>arguments 对象：接收传递进来的参数。arguments 对象的 length 属性可以得到参数的数量。</p>
+<pre><code>function box() {
+    var sum = 0;
+if (arguments.length == 0) return sum; //如果没有参数，退出
+for(var i = 0;i &lt; arguments.length; i++) { //如果有，就累加
+    sum = sum + arguments[i];
+}
+    return sum; //返回累加结果
+}
+alert(box(5,9,12));
+</code></pre><p>作为值的函数：函数名本身就是变量，所以函数也可以作为值来使用。</p>
+<pre><code>function box(sumFun, num) {
+    return sumFun(num); 
+}
+function sum(num) {
+    return num + 10;
+}
+
+var result = box(sum, 10); //传递函数到另一个函数里 
+
+var result = box(sum(10), 10); //传递函数返回值到另一个函数里
+</code></pre><p>函数内部属性：arguments 和 this。</p>
+<pre><code>function box(num) {
+if (num &lt;= 1) {
+    return 1;
+} else {
+return num * arguments.callee(num-1);//使用 callee 来执行自身  return num * box(num-1); //一个简单的的递归
+    }    
+}
+</code></pre><p>this 引用的是函数据以执行操作的对象，或者说函数调用语句所处的那个作用域。</p>
+<p>函数属性和方法：length 和 prototype。其中，length 属性表示函数希望接收的命名参数的个数。</p>
+<p>对于 prototype 属性，它是保存所有实例方法的真正所在，也就是原型。而 prototype 下有两个方法：apply()和 call()，每个函数都包含这两个非继承而来的方法。这两个方法的用途都在特定的作用域中调用函数，实际上等于设置函数体内 this 对象的值。</p>
+<pre><code>function box(num1, num2) {
+    return num1 + num2; //原函数
+}
+function sayBox(num1, num2) {
+    return box.apply(this, [num1, num2]); //this 表示作用域，这里是 window
+} //[]表示 box 所需要的参数
+function sayBox2(num1, num2) {
+return box.apply(this, arguments); //arguments 对象表    示 box 所需要的参数
+}
+alert(sayBox(10,10)); //20
+alert(sayBox2(10,10)); //20
+
+call()方法于 apply()方法相同，他们的区别仅仅在于接收参数的方式不同。对于 call()方法而言，第一个参数是作用域，没有变化，变化只是其余的参数都是直接传递给函数的。
+
+function box(num1, num2) {
+    return num1 + num2;
+}
+function callBox(num1, num2) {
+return box.call(this, num1, num2); //和 apply 区别在于后面的传参
+}
+alert(callBox(10,10));
+
+事实上，传递参数并不是 apply()和 call()方法真正的用武之地；它们经常使用的地方是能够扩展函数赖以运行的作用域。
+
+var color = &apos;红色的&apos;; //或者 window.color = &apos;红色的&apos;;也行
+var box = {
+    　color : &apos;蓝色的&apos;
+};
+function sayColor() {
+    alert(this.color);
+}
+sayColor(); //作用域在 window
+sayColor.call(this); //作用域在 window
+sayColor.call(window); //作用域在 window
+sayColor.call(box); //作用域在 box，对象冒充
+</code></pre>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/02/03/Project/" class="archive-article-date">
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/02/03/Project/" class="archive-article-date">
   	<time datetime="2016-02-03T09:15:29.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-02-03</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/03/Project/">JavaScript基础</a>
-    </h1>
-  
+      
+      
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/15/object/" class="archive-article-date">
-  	<time datetime="2016-01-15T06:09:18.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/15/object/">Javascript 面向对象编程：封装</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/01/15/object/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Javascript 面向对象编程：封装</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/02/Jquery入门/" class="archive-article-date">
-  	<time datetime="2016-01-02T01:20:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/02/Jquery入门/">Jquery入门</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
 
 
       </div>
@@ -253,8 +330,8 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
