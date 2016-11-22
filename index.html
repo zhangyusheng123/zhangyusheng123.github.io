@@ -139,6 +139,108 @@
       <div class="body-wrap">
         
   
+    <article id="post-DOM" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/15/DOM/">JavaScript DOM节点和文档类型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##Node类型</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id=&quot;demo&quot;&gt;
+    &lt;ul id=&quot;contents&quot;&gt;
+          &lt;li id=&quot;li_1&quot;&gt;&lt;/li&gt;
+          &lt;li id=&quot;li_2&quot;&gt;&lt;/li&gt;
+          &lt;li id=&quot;li_3&quot;&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p id=&quot;p_1&quot;&gt;&lt;/p&gt;&lt;p id=&quot;p_2&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;javascript_dom_1.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>childNodes()  获得子节点的集合</p>
+<pre><code>var ul = document.getElementById(&quot;contents&quot;);
+for(var i= 0 ; i &lt; ul.childNodes.length; i++){
+    if(ul.childNodes[i].nodeType == &quot;1&quot;){
+    console.log(ul.childNodes[i].id);    
+}
+}
+</code></pre><p>parentNode() 获得元素的父节点</p>
+<pre><code>var li = document.getElementById(&quot;li_1&quot;);
+console.log(li.parentNode.id);
+</code></pre><p>previousSibling : 获得上一个同胞节点</p>
+<p> nextSibling : 获得下一个同胞节点</p>
+<pre><code>var p1 = document.getElementById(&quot;p_1&quot;);
+
+console.log(p1.previousSibling.id);
+console.log(p1.nextSibling.id);
+</code></pre><p>firstChild:获得第一个子节点<br>lastChild:获得最后一个子节点</p>
+<pre><code>&lt;p id=&quot;demo2&quot;&gt;&lt;strong id=&quot;strong_1&quot;&gt;&lt;/strong&gt;&lt;a id=&quot;a&quot;&gt;&lt;/a&gt;&lt;strong id=&quot;strong_2&quot;&gt;&lt;/strong&gt;&lt;/p&gt;
+
+var p = document.getElementById(&quot;demo2&quot;);
+console.log(p.firstChild.id);
+console.log(p.lastChild.id);
+</code></pre><p>hasChildNodes() 判断是否有子节点 若有子元素，返回true，否则，返回false</p>
+<p>insertBefore()  在子节点前面插入节点</p>
+<pre><code>insertBefore(参数1，参数2)
+
+    参数1：要插入的节点
+    参数2：节点，表示在这个节点前面插入节点，若为null，则在末尾插入
+</code></pre><p>removeChild()   删除子节点</p>
+<pre><code>removeChild(参数1)
+
+    参数1：要删除的节点
+</code></pre><p>cloneNode() 克隆节点</p>
+<pre><code>node.cloneNode(true|false)
+
+    node:被克隆的节点
+    传入一个参数，如果是true，那么进行深复制（连同子节点一起复制），如果是false，那么进行浅复制，只复制节点本身。
+</code></pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/03/15/DOM/" class="archive-article-date">
+  	<time datetime="2016-03-15T11:56:51.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-03-15</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Project" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
