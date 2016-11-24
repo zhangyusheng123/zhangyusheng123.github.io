@@ -139,6 +139,108 @@
       <div class="body-wrap">
         
   
+    <article id="post-DOM" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/21/DOM/">JavaScript DOM节点和文档类型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##Node类型</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id=&quot;demo&quot;&gt;
+    &lt;ul id=&quot;contents&quot;&gt;
+          &lt;li id=&quot;li_1&quot;&gt;&lt;/li&gt;
+          &lt;li id=&quot;li_2&quot;&gt;&lt;/li&gt;
+          &lt;li id=&quot;li_3&quot;&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p id=&quot;p_1&quot;&gt;&lt;/p&gt;&lt;p id=&quot;p_2&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;javascript_dom_1.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>childNodes()  获得子节点的集合</p>
+<pre><code>var ul = document.getElementById(&quot;contents&quot;);
+for(var i= 0 ; i &lt; ul.childNodes.length; i++){
+    if(ul.childNodes[i].nodeType == &quot;1&quot;){
+    console.log(ul.childNodes[i].id);    
+}
+}
+</code></pre><p>parentNode() 获得元素的父节点</p>
+<pre><code>var li = document.getElementById(&quot;li_1&quot;);
+console.log(li.parentNode.id);
+</code></pre><p>previousSibling : 获得上一个同胞节点</p>
+<p> nextSibling : 获得下一个同胞节点</p>
+<pre><code>var p1 = document.getElementById(&quot;p_1&quot;);
+
+console.log(p1.previousSibling.id);
+console.log(p1.nextSibling.id);
+</code></pre><p>firstChild:获得第一个子节点<br>lastChild:获得最后一个子节点</p>
+<pre><code>&lt;p id=&quot;demo2&quot;&gt;&lt;strong id=&quot;strong_1&quot;&gt;&lt;/strong&gt;&lt;a id=&quot;a&quot;&gt;&lt;/a&gt;&lt;strong id=&quot;strong_2&quot;&gt;&lt;/strong&gt;&lt;/p&gt;
+
+var p = document.getElementById(&quot;demo2&quot;);
+console.log(p.firstChild.id);
+console.log(p.lastChild.id);
+</code></pre><p>hasChildNodes() 判断是否有子节点 若有子元素，返回true，否则，返回false</p>
+<p>insertBefore()  在子节点前面插入节点</p>
+<pre><code>insertBefore(参数1，参数2)
+
+    参数1：要插入的节点
+    参数2：节点，表示在这个节点前面插入节点，若为null，则在末尾插入
+</code></pre><p>removeChild()   删除子节点</p>
+<pre><code>removeChild(参数1)
+
+    参数1：要删除的节点
+</code></pre><p>cloneNode() 克隆节点</p>
+<pre><code>node.cloneNode(true|false)
+
+    node:被克隆的节点
+    传入一个参数，如果是true，那么进行深复制（连同子节点一起复制），如果是false，那么进行浅复制，只复制节点本身。
+</code></pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/06/21/DOM/" class="archive-article-date">
+  	<time datetime="2016-06-21T11:56:51.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-21</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-message" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -149,7 +251,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/25/message/">message</a>
+      <a class="article-title" href="/2016/06/10/message/">message</a>
     </h1>
   
 
@@ -248,8 +350,8 @@ btn.onclick=function(){
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/03/25/message/" class="archive-article-date">
-  	<time datetime="2016-03-25T12:09:50.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-03-25</time>
+      <a href="/2016/06/10/message/" class="archive-article-date">
+  	<time datetime="2016-06-10T12:09:50.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-10</time>
 </a>
       
       
@@ -269,7 +371,7 @@ btn.onclick=function(){
 
 
   
-    <article id="post-DOM" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-object" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -279,7 +381,7 @@ btn.onclick=function(){
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/15/DOM/">JavaScript DOM节点和文档类型</a>
+      <a class="article-title" href="/2016/05/30/object/">Javascript 面向对象编程：封装</a>
     </h1>
   
 
@@ -287,71 +389,84 @@ btn.onclick=function(){
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##Node类型</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
+        <p>总结了一些 感觉学习javascript最难的地放应该是object，因为他很独特，对于刚接触不就。学习不深的同学，这是很那掌握的，下面是我们一起看看基础的一面：</p>
+<p>Javascript是一种基于对象（object-based）的语言，你遇到的所有东西几乎都是对象。但是，它又不是一种真正的面向对象编程（OOP）语言，因为它的语法中没有class（类）。<br>那么，如果我们要把”属性”（property）和”方法”（method），封装成一个对象，甚至要从原型对象生成一个实例对象，我们应该怎么做呢？</p>
+<p>一，生成实例对象的原始模式</p>
+<p>假定我们把猫看成一个对象，它有”名字”和”颜色”两个属性。</p>
+<pre><code>var Cat = {name : &apos;&apos;,color : &apos;&apos;} 
+</code></pre><p>现在，我们需要根据这个原型对象的规格（schema），生成两个实例对象。</p>
+<pre><code>var cat1 = {}; // 创建一个空对象
+cat1.name = &quot;大毛&quot;; // 按照原型对象的属性赋值
+cat1.color = &quot;黄色&quot;;
 
-&lt;div id=&quot;demo&quot;&gt;
-    &lt;ul id=&quot;contents&quot;&gt;
-          &lt;li id=&quot;li_1&quot;&gt;&lt;/li&gt;
-          &lt;li id=&quot;li_2&quot;&gt;&lt;/li&gt;
-          &lt;li id=&quot;li_3&quot;&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;p id=&quot;p_1&quot;&gt;&lt;/p&gt;&lt;p id=&quot;p_2&quot;&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;script type=&quot;text/javascript&quot; src=&quot;javascript_dom_1.js&quot;&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>childNodes()  获得子节点的集合</p>
-<pre><code>var ul = document.getElementById(&quot;contents&quot;);
-for(var i= 0 ; i &lt; ul.childNodes.length; i++){
-    if(ul.childNodes[i].nodeType == &quot;1&quot;){
-    console.log(ul.childNodes[i].id);    
+var cat2 = {};
+cat2.name = &quot;二毛&quot;;
+cat2.color = &quot;黑色&quot;;
+</code></pre><p>上面就是封装，下面我们对它改进，</p>
+<pre><code>function Cat(name,color) {
+    return {
+        name:name,
+        color:color
+        }
+    }
+</code></pre><p>然后再实例化对象：也就等于在调用函数：</p>
+<pre><code>var cat1 = Cat(&quot;大毛&quot;,&quot;黄色&quot;);
+var cat2 = Cat(&quot;二毛&quot;,&quot;黑色&quot;);
+</code></pre><p>构造函数模式：</p>
+<p>为了解决从原型对象生成实例的问题，Javascript提供了一个构造函数（Constructor）模式。</p>
+<p>所谓”构造函数”，其实就是一个普通函数，但是内部使用了this变量。对构造函数使用new运算符，就能生成实例，并且this变量会绑定在实例对象上。</p>
+<p>比如,猫德原型对象可以这样写，</p>
+<pre><code>function Cat(name,color){
+    this.name=name;
+    this.color=color;
 }
-}
-</code></pre><p>parentNode() 获得元素的父节点</p>
-<pre><code>var li = document.getElementById(&quot;li_1&quot;);
-console.log(li.parentNode.id);
-</code></pre><p>previousSibling : 获得上一个同胞节点</p>
-<p> nextSibling : 获得下一个同胞节点</p>
-<pre><code>var p1 = document.getElementById(&quot;p_1&quot;);
-
-console.log(p1.previousSibling.id);
-console.log(p1.nextSibling.id);
-</code></pre><p>firstChild:获得第一个子节点<br>lastChild:获得最后一个子节点</p>
-<pre><code>&lt;p id=&quot;demo2&quot;&gt;&lt;strong id=&quot;strong_1&quot;&gt;&lt;/strong&gt;&lt;a id=&quot;a&quot;&gt;&lt;/a&gt;&lt;strong id=&quot;strong_2&quot;&gt;&lt;/strong&gt;&lt;/p&gt;
-
-var p = document.getElementById(&quot;demo2&quot;);
-console.log(p.firstChild.id);
-console.log(p.lastChild.id);
-</code></pre><p>hasChildNodes() 判断是否有子节点 若有子元素，返回true，否则，返回false</p>
-<p>insertBefore()  在子节点前面插入节点</p>
-<pre><code>insertBefore(参数1，参数2)
-
-    参数1：要插入的节点
-    参数2：节点，表示在这个节点前面插入节点，若为null，则在末尾插入
-</code></pre><p>removeChild()   删除子节点</p>
-<pre><code>removeChild(参数1)
-
-    参数1：要删除的节点
-</code></pre><p>cloneNode() 克隆节点</p>
-<pre><code>node.cloneNode(true|false)
-
-    node:被克隆的节点
-    传入一个参数，如果是true，那么进行深复制（连同子节点一起复制），如果是false，那么进行浅复制，只复制节点本身。
+</code></pre><p>我们现在就可以生成实例对象了</p>
+<pre><code>　var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);
+　var cat2 = new Cat(&quot;二毛&quot;,&quot;黑色&quot;);
+　alert(cat1.name); // 大毛
+　alert(cat1.color); // 黄色
+　
+</code></pre><p>这时cat1和cat2会自动含有一个constructor属性，指向它们的构造函数。</p>
+<pre><code>alert(cat1.constructor == Cat); //true
+alert(cat2.constructor == Cat); //true
+</code></pre><p>Javascript还提供了一个instanceof运算符，验证原型对象与实例对象之间的关系。重点。可能会出面试题</p>
+<pre><code>alert(cat1 instanceof Cat); //true
+alert(cat2 instanceof Cat); //true
+</code></pre><p>Prototype 模式：这也是目前用的比较多得方法<br>Javascript规定，每一个构造函数都有一个prototype属性，指向另一个对象。这个对象的所有属性和方法，都会被构造函数的实例继承</p>
+<p>这意味着，我们可以把那些不变的属性和方法，直接定义在prototype对象上</p>
+<pre><code>function Cat(name,color){
+     this.name = name;
+     this.color = color;
+    }
+    Cat.prototype.type = &quot;猫科动物&quot;;
+    Cat.prototype.eat = function(){alert(&quot;吃老鼠&quot;)};
+</code></pre><p>然后，生成实例。</p>
+<pre><code>var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);
+var cat2 = new Cat(&quot;二毛&quot;,&quot;黑色&quot;);
+alert(cat1.type); // 猫科动物
+cat1.eat(); // 吃老鼠
+</code></pre><p>这时所有实例的type属性和eat()方法，其实都是同一个内存地址，指向prototype对象，因此就提高了运行效率。</p>
+<pre><code>alert(cat1.eat == cat2.eat); //true
+</code></pre><p>Prototype模式的验证方法</p>
+<p>为了配合prototype属性，Javascript定义了一些辅助方法，帮助我们使用它：<br> isPrototypeOf()<br> 这个方法用来判断，某个proptotype对象和某个实例之间的关系。</p>
+<pre><code>alert(Cat.prototype.isPrototypeOf(cat1)); //true     alert(Cat.prototype.isPrototypeOf(cat2)); //true
+</code></pre><p>hasOwnProperty()</p>
+<p>每个实例对象都有一个hasOwnProperty()方法，用来判断某一个属性到底是本地属性，还是继承自prototype对象的属性</p>
+<pre><code>alert(cat1.hasOwnProperty(&quot;name&quot;)); // true
+alert(cat1.hasOwnProperty(&quot;type&quot;)); // false
+</code></pre><p> in运算符 </p>
+<p> in运算符可以用来判断，某个实例是否含有某个属性，不管是不是本地属性。</p>
+<pre><code>alert(&quot;name&quot; in cat1); // true
+alert(&quot;type&quot; in cat1); // true
+</code></pre><p>in运算符还可以用来遍历某个对象的所有属性</p>
+<pre><code>　for(var prop in cat1) { alert(&quot;cat1[&quot;+prop+&quot;]=&quot;+cat1[prop]); }
 </code></pre>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/03/15/DOM/" class="archive-article-date">
-  	<time datetime="2016-03-15T11:56:51.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-03-15</time>
+      <a href="/2016/05/30/object/" class="archive-article-date">
+  	<time datetime="2016-05-30T06:09:18.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-30</time>
 </a>
       
       
@@ -381,7 +496,7 @@ console.log(p.lastChild.id);
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/03/Project/">JavaScript基础</a>
+      <a class="article-title" href="/2016/05/15/Project/">JavaScript基础</a>
     </h1>
   
 
@@ -483,274 +598,8 @@ sayColor.call(box); //作用域在 box，对象冒充
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/02/03/Project/" class="archive-article-date">
-  	<time datetime="2016-02-03T09:15:29.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-02-03</time>
-</a>
-      
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-object" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/15/object/">Javascript 面向对象编程：封装</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>总结了一些 感觉学习javascript最难的地放应该是object，因为他很独特，对于刚接触不就。学习不深的同学，这是很那掌握的，下面是我们一起看看基础的一面：</p>
-<p>Javascript是一种基于对象（object-based）的语言，你遇到的所有东西几乎都是对象。但是，它又不是一种真正的面向对象编程（OOP）语言，因为它的语法中没有class（类）。<br>那么，如果我们要把”属性”（property）和”方法”（method），封装成一个对象，甚至要从原型对象生成一个实例对象，我们应该怎么做呢？</p>
-<p>一，生成实例对象的原始模式</p>
-<p>假定我们把猫看成一个对象，它有”名字”和”颜色”两个属性。</p>
-<pre><code>var Cat = {name : &apos;&apos;,color : &apos;&apos;} 
-</code></pre><p>现在，我们需要根据这个原型对象的规格（schema），生成两个实例对象。</p>
-<pre><code>var cat1 = {}; // 创建一个空对象
-cat1.name = &quot;大毛&quot;; // 按照原型对象的属性赋值
-cat1.color = &quot;黄色&quot;;
-
-var cat2 = {};
-cat2.name = &quot;二毛&quot;;
-cat2.color = &quot;黑色&quot;;
-</code></pre><p>上面就是封装，下面我们对它改进，</p>
-<pre><code>function Cat(name,color) {
-    return {
-        name:name,
-        color:color
-        }
-    }
-</code></pre><p>然后再实例化对象：也就等于在调用函数：</p>
-<pre><code>var cat1 = Cat(&quot;大毛&quot;,&quot;黄色&quot;);
-var cat2 = Cat(&quot;二毛&quot;,&quot;黑色&quot;);
-</code></pre><p>构造函数模式：</p>
-<p>为了解决从原型对象生成实例的问题，Javascript提供了一个构造函数（Constructor）模式。</p>
-<p>所谓”构造函数”，其实就是一个普通函数，但是内部使用了this变量。对构造函数使用new运算符，就能生成实例，并且this变量会绑定在实例对象上。</p>
-<p>比如,猫德原型对象可以这样写，</p>
-<pre><code>function Cat(name,color){
-    this.name=name;
-    this.color=color;
-}
-</code></pre><p>我们现在就可以生成实例对象了</p>
-<pre><code>　var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);
-　var cat2 = new Cat(&quot;二毛&quot;,&quot;黑色&quot;);
-　alert(cat1.name); // 大毛
-　alert(cat1.color); // 黄色
-　
-</code></pre><p>这时cat1和cat2会自动含有一个constructor属性，指向它们的构造函数。</p>
-<pre><code>alert(cat1.constructor == Cat); //true
-alert(cat2.constructor == Cat); //true
-</code></pre><p>Javascript还提供了一个instanceof运算符，验证原型对象与实例对象之间的关系。重点。可能会出面试题</p>
-<pre><code>alert(cat1 instanceof Cat); //true
-alert(cat2 instanceof Cat); //true
-</code></pre><p>Prototype 模式：这也是目前用的比较多得方法<br>Javascript规定，每一个构造函数都有一个prototype属性，指向另一个对象。这个对象的所有属性和方法，都会被构造函数的实例继承</p>
-<p>这意味着，我们可以把那些不变的属性和方法，直接定义在prototype对象上</p>
-<pre><code>function Cat(name,color){
-     this.name = name;
-     this.color = color;
-    }
-    Cat.prototype.type = &quot;猫科动物&quot;;
-    Cat.prototype.eat = function(){alert(&quot;吃老鼠&quot;)};
-</code></pre><p>然后，生成实例。</p>
-<pre><code>var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);
-var cat2 = new Cat(&quot;二毛&quot;,&quot;黑色&quot;);
-alert(cat1.type); // 猫科动物
-cat1.eat(); // 吃老鼠
-</code></pre><p>这时所有实例的type属性和eat()方法，其实都是同一个内存地址，指向prototype对象，因此就提高了运行效率。</p>
-<pre><code>alert(cat1.eat == cat2.eat); //true
-</code></pre><p>Prototype模式的验证方法</p>
-<p>为了配合prototype属性，Javascript定义了一些辅助方法，帮助我们使用它：<br> isPrototypeOf()<br> 这个方法用来判断，某个proptotype对象和某个实例之间的关系。</p>
-<pre><code>alert(Cat.prototype.isPrototypeOf(cat1)); //true     alert(Cat.prototype.isPrototypeOf(cat2)); //true
-</code></pre><p>hasOwnProperty()</p>
-<p>每个实例对象都有一个hasOwnProperty()方法，用来判断某一个属性到底是本地属性，还是继承自prototype对象的属性</p>
-<pre><code>alert(cat1.hasOwnProperty(&quot;name&quot;)); // true
-alert(cat1.hasOwnProperty(&quot;type&quot;)); // false
-</code></pre><p> in运算符 </p>
-<p> in运算符可以用来判断，某个实例是否含有某个属性，不管是不是本地属性。</p>
-<pre><code>alert(&quot;name&quot; in cat1); // true
-alert(&quot;type&quot; in cat1); // true
-</code></pre><p>in运算符还可以用来遍历某个对象的所有属性</p>
-<pre><code>　for(var prop in cat1) { alert(&quot;cat1[&quot;+prop+&quot;]=&quot;+cat1[prop]); }
-</code></pre>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/01/15/object/" class="archive-article-date">
-  	<time datetime="2016-01-15T06:09:18.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-15</time>
-</a>
-      
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Jquery入门" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/02/Jquery入门/">Jquery入门</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在学习jQuery，在网上看到有几篇关于jQuery的文章，写的不错转载过来跟大家分享一下；简单的介绍一下用Jquery和不用Jquery获取元素</p>
-<p>不使用JQuery时获取DOM文本的操作如下：</p>
-<pre><code>document.getElementById(&apos;info&apos;).value = &apos;Hello World!&apos;;
-</code></pre><p>使用JQuery时获取DOM文本操作如下：</p>
-<pre><code>$(&apos;#info&apos;).val(&apos;Hello World!&apos;);
-</code></pre><p>不难看出Jquery的优点就是是代码变得更加简练；</p>
-<p>Jquery能做什么？</p>
-<p>   1.方便的选取DOM元素，操作DOM元素。（HTML元素选取、HTML元素操作、获取DOM元素、动态修改页面样式、动态改变DOM内容）</p>
-<ol>
-<li><p>响应用户操作。（HTML事件函数、JavaScript特效和动画、响应用户的交互操作、为页面添加动态效果）<br>3.简化AJAX操作。（方便地为网站提供AJAX交互、统一Ajax操作）</p>
-<p>也就是能方便DOM的选取和操作，响应用户操作，简化Ajax操作。</p>
-</li>
-</ol>
-<p>Jquery和DOM的关系</p>
-<p>JQuery对象就是用JQuery包装DOM之后产生的对象。JQuery对象是JQuery独有的，可以使用JQuery的各种方法。</p>
-<pre><code>$(&quot;#test&quot;).html();
-</code></pre><p>意思是指：获取ID为test的元素内的html代码。其中html()是jQuery里的方法 。</p>
-<p>这段代码的作用等同于用DOM实现代码：</p>
-<pre><code>document.getElementById(&quot;id&quot;).innerHTML;
-</code></pre><p>用#id作为选择器获取得的是jQuery对象document.getElementById(“id”)得到的DOM对象，这两者并不等价。</p>
-<p>JQuery中的“$”有什么作用</p>
-<p>$其实就是jQuery的别称。是jQuery提供的一个函数，用来将DOM元素、选择器包装成jQuery对象。</p>
-<pre><code>var v1 = $(&apos;#id&apos;);
-var v2 = jQuery(&apos;#id&apos;);
-</code></pre><p>以上两者等价</p>
-<p>所以”$”其实是一个符号，$()代替了jQuery(),当然你也可以使用其他的字符来代替”$”</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/01/02/Jquery入门/" class="archive-article-date">
-  	<time datetime="2016-01-02T01:20:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-02</time>
-</a>
-      
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-stringify" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/18/stringify/">stringify</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>js数据类型：</p>
-<pre><code>字符串、数字、布尔、数组、对象、Null、Undefined
-</code></pre><p>js Object</p>
-<pre><code>var data = {
-    &quot;name&quot;:&quot;yfs&quot;,
-    &quot;age&quot;:28,
-    &quot;boy&quot;:true,
-    &quot;language&quot;:[&quot;chinese&quot;, &quot;english&quot;],
-    &quot;address&quot;:{
-    &quot;provice&quot;:&quot;shanxi&quot;,
-    &quot;city&quot;:&quot;xian&quot;
-    }
-};
-</code></pre><p>JSON.stringify();</p>
-<pre><code>var jsonString = JSON.stringify(data);
-console.log(jsonString);
-console.log(typeof(jsonString));
-
-    //结果：
- {&quot;name&quot;:&quot;yfs&quot;,&quot;age&quot;:28,&quot;boy&quot;:true,&quot;language&quot;:    [&quot;chinese&quot;,&quot;english&quot;],&quot;address&quot;:{&quot;p
-rovice&quot;:&quot;shanxi&quot;,&quot;city&quot;:&quot;xian&quot;}}
-
-//类型：string
-var a = &apos;{&quot;name&quot;:&quot;yfs&quot;,&quot;age&quot;:    28,&quot;boy&quot;:true,&quot;language&quot;:[&quot;chinese&quot;,&quot;english&quot;],&quot;address&quot;:{&quot;p
-rovice&quot;:&quot;shanxi&quot;,&quot;city&quot;:&quot;xian&quot;}}&apos;;
-</code></pre><p>JSON.parse();</p>
-<pre><code>var jsObject = JSON.parse(jsonString);
-console.log(jsObject);
-console.log(typeof(jsObject));
-
-//结果：
-{ name: &apos;yfs&apos;,
-  age: 28,
-  boy: true,language: 
-  [ &apos;chinese&apos;, &apos;english&apos; ],
-  address: { provice: &apos;shanxi&apos;, city: &apos;xian&apos; } }
-//类型：object
-</code></pre>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2015/12/18/stringify/" class="archive-article-date">
-  	<time datetime="2015-12-18T02:05:09.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-12-18</time>
+      <a href="/2016/05/15/Project/" class="archive-article-date">
+  	<time datetime="2016-05-15T09:15:29.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-15</time>
 </a>
       
       
@@ -780,7 +629,7 @@ console.log(typeof(jsObject));
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/28/tab/">tab选项卡</a>
+      <a class="article-title" href="/2016/05/03/tab/">tab选项卡</a>
     </h1>
   
 
@@ -925,8 +774,159 @@ for(var i=0;i&lt;btn.length;i++){
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2015/11/28/tab/" class="archive-article-date">
-  	<time datetime="2015-11-28T06:34:41.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-11-28</time>
+      <a href="/2016/05/03/tab/" class="archive-article-date">
+  	<time datetime="2016-05-03T06:34:41.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-03</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-stringify" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/28/stringify/">stringify</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>js数据类型：</p>
+<pre><code>字符串、数字、布尔、数组、对象、Null、Undefined
+</code></pre><p>js Object</p>
+<pre><code>var data = {
+    &quot;name&quot;:&quot;yfs&quot;,
+    &quot;age&quot;:28,
+    &quot;boy&quot;:true,
+    &quot;language&quot;:[&quot;chinese&quot;, &quot;english&quot;],
+    &quot;address&quot;:{
+    &quot;provice&quot;:&quot;shanxi&quot;,
+    &quot;city&quot;:&quot;xian&quot;
+    }
+};
+</code></pre><p>JSON.stringify();</p>
+<pre><code>var jsonString = JSON.stringify(data);
+console.log(jsonString);
+console.log(typeof(jsonString));
+
+    //结果：
+ {&quot;name&quot;:&quot;yfs&quot;,&quot;age&quot;:28,&quot;boy&quot;:true,&quot;language&quot;:    [&quot;chinese&quot;,&quot;english&quot;],&quot;address&quot;:{&quot;p
+rovice&quot;:&quot;shanxi&quot;,&quot;city&quot;:&quot;xian&quot;}}
+
+//类型：string
+var a = &apos;{&quot;name&quot;:&quot;yfs&quot;,&quot;age&quot;:    28,&quot;boy&quot;:true,&quot;language&quot;:[&quot;chinese&quot;,&quot;english&quot;],&quot;address&quot;:{&quot;p
+rovice&quot;:&quot;shanxi&quot;,&quot;city&quot;:&quot;xian&quot;}}&apos;;
+</code></pre><p>JSON.parse();</p>
+<pre><code>var jsObject = JSON.parse(jsonString);
+console.log(jsObject);
+console.log(typeof(jsObject));
+
+//结果：
+{ name: &apos;yfs&apos;,
+  age: 28,
+  boy: true,language: 
+  [ &apos;chinese&apos;, &apos;english&apos; ],
+  address: { provice: &apos;shanxi&apos;, city: &apos;xian&apos; } }
+//类型：object
+</code></pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/04/28/stringify/" class="archive-article-date">
+  	<time datetime="2016-04-28T02:05:09.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-28</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Jquery入门" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/20/Jquery入门/">Jquery入门</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在学习jQuery，在网上看到有几篇关于jQuery的文章，写的不错转载过来跟大家分享一下；简单的介绍一下用Jquery和不用Jquery获取元素</p>
+<p>不使用JQuery时获取DOM文本的操作如下：</p>
+<pre><code>document.getElementById(&apos;info&apos;).value = &apos;Hello World!&apos;;
+</code></pre><p>使用JQuery时获取DOM文本操作如下：</p>
+<pre><code>$(&apos;#info&apos;).val(&apos;Hello World!&apos;);
+</code></pre><p>不难看出Jquery的优点就是是代码变得更加简练；</p>
+<p>Jquery能做什么？</p>
+<p>   1.方便的选取DOM元素，操作DOM元素。（HTML元素选取、HTML元素操作、获取DOM元素、动态修改页面样式、动态改变DOM内容）</p>
+<ol>
+<li><p>响应用户操作。（HTML事件函数、JavaScript特效和动画、响应用户的交互操作、为页面添加动态效果）<br>3.简化AJAX操作。（方便地为网站提供AJAX交互、统一Ajax操作）</p>
+<p>也就是能方便DOM的选取和操作，响应用户操作，简化Ajax操作。</p>
+</li>
+</ol>
+<p>Jquery和DOM的关系</p>
+<p>JQuery对象就是用JQuery包装DOM之后产生的对象。JQuery对象是JQuery独有的，可以使用JQuery的各种方法。</p>
+<pre><code>$(&quot;#test&quot;).html();
+</code></pre><p>意思是指：获取ID为test的元素内的html代码。其中html()是jQuery里的方法 。</p>
+<p>这段代码的作用等同于用DOM实现代码：</p>
+<pre><code>document.getElementById(&quot;id&quot;).innerHTML;
+</code></pre><p>用#id作为选择器获取得的是jQuery对象document.getElementById(“id”)得到的DOM对象，这两者并不等价。</p>
+<p>JQuery中的“$”有什么作用</p>
+<p>$其实就是jQuery的别称。是jQuery提供的一个函数，用来将DOM元素、选择器包装成jQuery对象。</p>
+<pre><code>var v1 = $(&apos;#id&apos;);
+var v2 = jQuery(&apos;#id&apos;);
+</code></pre><p>以上两者等价</p>
+<p>所以”$”其实是一个符号，$()代替了jQuery(),当然你也可以使用其他的字符来代替”$”</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/04/20/Jquery入门/" class="archive-article-date">
+  	<time datetime="2016-04-20T01:20:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-20</time>
 </a>
       
       
@@ -956,7 +956,7 @@ for(var i=0;i&lt;btn.length;i++){
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/16/four/">canvas动态制作表盘</a>
+      <a class="article-title" href="/2016/04/05/four/">canvas动态制作表盘</a>
     </h1>
   
 
@@ -1097,8 +1097,8 @@ setInterval(draw,1000)
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2015/11/16/four/" class="archive-article-date">
-  	<time datetime="2015-11-16T06:18:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-11-16</time>
+      <a href="/2016/04/05/four/" class="archive-article-date">
+  	<time datetime="2016-04-05T06:18:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-05</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -1133,7 +1133,7 @@ setInterval(draw,1000)
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/19/third/">神奇的css！竟然可以这样玩转表格</a>
+      <a class="article-title" href="/2016/03/19/third/">神奇的css！竟然可以这样玩转表格</a>
     </h1>
   
 
@@ -1178,8 +1178,8 @@ setInterval(draw,1000)
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2015/10/19/third/" class="archive-article-date">
-  	<time datetime="2015-10-19T02:35:11.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-10-19</time>
+      <a href="/2016/03/19/third/" class="archive-article-date">
+  	<time datetime="2016-03-19T02:35:11.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-03-19</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -1214,7 +1214,7 @@ setInterval(draw,1000)
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/04/second/">超实用的知识点</a>
+      <a class="article-title" href="/2016/03/04/second/">超实用的知识点</a>
     </h1>
   
 
@@ -1319,8 +1319,8 @@ setInterval(draw,1000)
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2015/10/04/second/" class="archive-article-date">
-  	<time datetime="2015-10-04T13:29:18.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-10-04</time>
+      <a href="/2016/03/04/second/" class="archive-article-date">
+  	<time datetime="2016-03-04T13:29:18.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-03-04</time>
 </a>
       
 	<div class="article-tag tagcloud">

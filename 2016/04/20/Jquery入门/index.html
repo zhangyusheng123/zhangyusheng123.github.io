@@ -6,14 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2016 | 漫步人生路</title>
+  <title>Jquery入门 | 漫步人生路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="漫步人生路">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+  <meta name="description" content="最近在学习jQuery，在网上看到有几篇关于jQuery的文章，写的不错转载过来跟大家分享一下；简单的介绍一下用Jquery和不用Jquery获取元素
+不使用JQuery时获取DOM文本的操作如下：
+document.getElementById(&amp;apos;info&amp;apos;).value = &amp;apos;Hello World!&amp;apos;;
+使用JQuery时获取DOM文本操作如下：
+$(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jquery入门">
+<meta property="og:url" content="http://yoursite.com/2016/04/20/Jquery入门/index.html">
 <meta property="og:site_name" content="漫步人生路">
+<meta property="og:description" content="最近在学习jQuery，在网上看到有几篇关于jQuery的文章，写的不错转载过来跟大家分享一下；简单的介绍一下用Jquery和不用Jquery获取元素
+不使用JQuery时获取DOM文本的操作如下：
+document.getElementById(&amp;apos;info&amp;apos;).value = &amp;apos;Hello World!&amp;apos;;
+使用JQuery时获取DOM文本操作如下：
+$(">
+<meta property="og:updated_time" content="2016-11-24T10:56:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="漫步人生路">
+<meta name="twitter:title" content="Jquery入门">
+<meta name="twitter:description" content="最近在学习jQuery，在网上看到有几篇关于jQuery的文章，写的不错转载过来跟大家分享一下；简单的介绍一下用Jquery和不用Jquery获取元素
+不使用JQuery时获取DOM文本的操作如下：
+document.getElementById(&amp;apos;info&amp;apos;).value = &amp;apos;Hello World!&amp;apos;;
+使用JQuery时获取DOM文本操作如下：
+$(">
   
     <link rel="alternative" href="/atom.xml" title="漫步人生路" type="application/atom+xml">
   
@@ -137,311 +153,113 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-Jquery入门" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
+    <h1 class="article-title" itemprop="name">
+      Jquery入门
+    </h1>
   
+
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
       
+        <p>最近在学习jQuery，在网上看到有几篇关于jQuery的文章，写的不错转载过来跟大家分享一下；简单的介绍一下用Jquery和不用Jquery获取元素</p>
+<p>不使用JQuery时获取DOM文本的操作如下：</p>
+<pre><code>document.getElementById(&apos;info&apos;).value = &apos;Hello World!&apos;;
+</code></pre><p>使用JQuery时获取DOM文本操作如下：</p>
+<pre><code>$(&apos;#info&apos;).val(&apos;Hello World!&apos;);
+</code></pre><p>不难看出Jquery的优点就是是代码变得更加简练；</p>
+<p>Jquery能做什么？</p>
+<p>   1.方便的选取DOM元素，操作DOM元素。（HTML元素选取、HTML元素操作、获取DOM元素、动态修改页面样式、动态改变DOM内容）</p>
+<ol>
+<li><p>响应用户操作。（HTML事件函数、JavaScript特效和动画、响应用户的交互操作、为页面添加动态效果）<br>3.简化AJAX操作。（方便地为网站提供AJAX交互、统一Ajax操作）</p>
+<p>也就是能方便DOM的选取和操作，响应用户操作，简化Ajax操作。</p>
+</li>
+</ol>
+<p>Jquery和DOM的关系</p>
+<p>JQuery对象就是用JQuery包装DOM之后产生的对象。JQuery对象是JQuery独有的，可以使用JQuery的各种方法。</p>
+<pre><code>$(&quot;#test&quot;).html();
+</code></pre><p>意思是指：获取ID为test的元素内的html代码。其中html()是jQuery里的方法 。</p>
+<p>这段代码的作用等同于用DOM实现代码：</p>
+<pre><code>document.getElementById(&quot;id&quot;).innerHTML;
+</code></pre><p>用#id作为选择器获取得的是jQuery对象document.getElementById(“id”)得到的DOM对象，这两者并不等价。</p>
+<p>JQuery中的“$”有什么作用</p>
+<p>$其实就是jQuery的别称。是jQuery提供的一个函数，用来将DOM元素、选择器包装成jQuery对象。</p>
+<pre><code>var v1 = $(&apos;#id&apos;);
+var v2 = jQuery(&apos;#id&apos;);
+</code></pre><p>以上两者等价</p>
+<p>所以”$”其实是一个符号，$()代替了jQuery(),当然你也可以使用其他的字符来代替”$”</p>
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/21/DOM/" class="archive-article-date">
-  	<time datetime="2016-06-21T11:56:51.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/21/DOM/">JavaScript DOM节点和文档类型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/10/message/" class="archive-article-date">
-  	<time datetime="2016-06-10T12:09:50.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/10/message/">message</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/30/object/" class="archive-article-date">
-  	<time datetime="2016-05-30T06:09:18.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/30/object/">Javascript 面向对象编程：封装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/15/Project/" class="archive-article-date">
-  	<time datetime="2016-05-15T09:15:29.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/15/Project/">JavaScript基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/03/tab/" class="archive-article-date">
-  	<time datetime="2016-05-03T06:34:41.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/03/tab/">tab选项卡</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/28/stringify/" class="archive-article-date">
-  	<time datetime="2016-04-28T02:05:09.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/28/stringify/">stringify</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/20/Jquery入门/" class="archive-article-date">
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/04/20/Jquery入门/" class="archive-article-date">
   	<time datetime="2016-04-20T01:20:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-20</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/20/Jquery入门/">Jquery入门</a>
-    </h1>
-  
+      
+      
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/05/four/" class="archive-article-date">
-  	<time datetime="2016-04-05T06:18:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/05/four/">canvas动态制作表盘</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li></ul>
+  
+<nav id="article-nav">
+  
+    <a href="/2016/04/28/stringify/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          stringify
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/05/four/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">canvas动态制作表盘</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/19/third/" class="archive-article-date">
-  	<time datetime="2016-03-19T02:35:11.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/19/third/">神奇的css！竟然可以这样玩转表格</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/table/">table</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/04/second/" class="archive-article-date">
-  	<time datetime="2016-03-04T13:29:18.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-03-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/04/second/">超实用的知识点</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/div-javascript/">div,javascript</a></li></ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2016/page/2/">2</a><a class="extend next" rel="next" href="/archives/2016/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
       </div>
@@ -461,8 +279,8 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
