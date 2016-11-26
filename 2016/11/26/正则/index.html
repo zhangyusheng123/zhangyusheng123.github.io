@@ -6,14 +6,42 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2016/11 | 漫步人生路</title>
+  <title>正则 | 漫步人生路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="漫步人生路">
-<meta property="og:url" content="http://yoursite.com/archives/2016/11/index.html">
+  <meta name="description" content="##正则表达式
+对于大多数人而言，正则就想一串乱码，不容易懂，下面有20个常用表达式，可以作为收藏；
+1 . 校验密码强度
+密码的强度必须是包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间。
+^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$
+2.校验中文
+字符串仅能是中文
+^[\\u4e00-\\u9fa5]{0,}$
+3.由数字、26个英文字母或下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则">
+<meta property="og:url" content="http://yoursite.com/2016/11/26/正则/index.html">
 <meta property="og:site_name" content="漫步人生路">
+<meta property="og:description" content="##正则表达式
+对于大多数人而言，正则就想一串乱码，不容易懂，下面有20个常用表达式，可以作为收藏；
+1 . 校验密码强度
+密码的强度必须是包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间。
+^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$
+2.校验中文
+字符串仅能是中文
+^[\\u4e00-\\u9fa5]{0,}$
+3.由数字、26个英文字母或下">
+<meta property="og:updated_time" content="2016-11-26T01:48:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="漫步人生路">
+<meta name="twitter:title" content="正则">
+<meta name="twitter:description" content="##正则表达式
+对于大多数人而言，正则就想一串乱码，不容易懂，下面有20个常用表达式，可以作为收藏；
+1 . 校验密码强度
+密码的强度必须是包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间。
+^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$
+2.校验中文
+字符串仅能是中文
+^[\\u4e00-\\u9fa5]{0,}$
+3.由数字、26个英文字母或下">
   
     <link rel="alternative" href="/atom.xml" title="漫步人生路" type="application/atom+xml">
   
@@ -137,49 +165,128 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-正则" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/11/26/正则/" class="archive-article-date">
-  	<time datetime="2016-11-26T01:28:24.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/26/正则/">正则</a>
+    <h1 class="article-title" itemprop="name">
+      正则
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##正则表达式</p>
+<p>对于大多数人而言，正则就想一串乱码，不容易懂，下面有20个常用表达式，可以作为收藏；</p>
+<p>1 . 校验密码强度</p>
+<p><strong>密码的强度必须是包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间。</strong></p>
+<pre><code>^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$
+</code></pre><p>2.校验中文</p>
+<p><strong>字符串仅能是中文</strong></p>
+<pre><code>^[\\u4e00-\\u9fa5]{0,}$
+</code></pre><p>3.由数字、26个英文字母或下划线组成的字符串</p>
+<pre><code>^\\w+$
+</code></pre><p>4.校验E-Mail 地址</p>
+<p><strong>同密码一样，下面是E-mail地址合规性的正则检查语句。</strong></p>
+<pre><code>[\\w!#$%&amp;&apos;*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&amp;&apos;*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[\\w](?:[\\w-]*[\\w])?
+</code></pre><p>5.校验身份证号码<br>    下面是身份证号码的正则校验。15 或 18位。</p>
+<pre><code>15位的   ^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+18位的  ^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9]|X)$
+</code></pre><p>6.校验日期<br>“yyyy-mm-dd“ 格式的日期校验，已考虑平闰年。</p>
+<pre><code>^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$
+</code></pre><p>7.校验金额<br>金额校验，精确到2位小数。</p>
+<pre><code>^[0-9]+(.[0-9]{2})?$
+</code></pre><p>8.校验手机号<br>下面是国内 13、15、18开头的手机号正则表达式。（可根据目前国内收集号扩展前两位开头号码）</p>
+<pre><code>^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$
+</code></pre><p>9.判断IE的版本<br>IE目前还没被完全取代，很多页面还是需要做版本兼容，下面是IE版本检查的表达式。</p>
+<pre><code>^.*MSIE [5-8](?:\\.[0-9]+)?(?!.*Trident\\/[5-9]\\.0).*$
+</code></pre><p>10.校验IP-v4地址 IP4 正则语句。</p>
+<pre><code>\\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b
+</code></pre><p>11.校验IP-v6地址 IP6 正则语句。</p>
+<pre><code>(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))
+</code></pre><p>12.检查URL的前缀<br>应用开发中很多时候需要区分请求是HTTPS还是HTTP，通过下面的表达式可以取出一个url的前缀然后再逻辑判断</p>
+<pre><code>if (!s.match(/^[a-zA-Z]+:\\/\\//))
+{
+    s = &apos;http://&apos; + s;
+}
+</code></pre><p>13.提取URL链接 下面的这个表达式可以筛选出一段文本中的URL。</p>
+<pre><code>^(f|ht){1}(tp|tps):\\/\\/([\\w-]+\\.)+[\\w-]+(\\/[\\w- ./?%&amp;=]*)?
+</code></pre><p>14.文件路径及扩展名校验<br>验证windows下文件路径和扩展名（下面的例子中为.txt文件）</p>
+<pre><code>^([a-zA-Z]\\:|\\\\)\\\\([^\\\\]+\\\\)*[^\\/:*?&quot;&lt;&gt;|]+\\.txt(l)?$
+</code></pre><p>15.提取Color Hex Codes 有时需要抽取网页中的颜色代码，可以使用下面的表达式。</p>
+<pre><code>^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$
+</code></pre><p>16.提取网页图片<br>假若你想提取网页中所有图片信息，可以利用下面的表达式。</p>
+<pre><code>//&lt; *[img][^\\\\&gt;]*[src] *= *[\\&quot;\\&apos;]{0,1}([^\\&quot;\\&apos;\\ &gt;]*)
+</code></pre><p>17.提取页面超链接 提取html中的超链接。</p>
+<pre><code>(&lt;a\\s*(?!.*\\brel=)[^&gt;]*)(href=&quot;https?:\\/\\/)((?!(?:(?:www\\.)?&apos;.implode(&apos;|(?:www\\.)?&apos;, $follow_list).&apos;))[^&quot;]+)&quot;((?!.*\\brel=)[^&gt;]*)(?:[^&gt;]*)&gt;
+</code></pre><p>18.查找CSS属性 通过下面的表达式，可以搜索到相匹配的CSS属性</p>
+<pre><code>^\\s*[a-zA-Z\\-]+\\s*[:]{1}\\s[a-zA-Z0-9\\s.#]+[;]{1}
+</code></pre><p>19.抽取注释<br>如果你需要移除HMTL中的注释，可以使用如下的表达式。</p>
+<pre><code>&lt;!--(.*?)--&gt;
+</code></pre><p>20.匹配HTML标签通过下面的表达式可以匹配出HTML中的标签属性。</p>
+<pre><code>&lt;\\/?\\w+((\\s+\\w+(\\s*=\\s*(?:&quot;.*?&quot;|&apos;.*?&apos;|[\\^&apos;&quot;&gt;\\s]+))?)+\\s*|\\s*)\\/?&gt;
+</code></pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/26/正则/" class="archive-article-date">
+  	<time datetime="2016-11-26T01:28:24.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-26</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/21/DOM/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript DOM节点和文档类型</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
 
 
       </div>
@@ -199,8 +306,8 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
