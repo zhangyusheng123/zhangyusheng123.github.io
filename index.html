@@ -139,6 +139,192 @@
       <div class="body-wrap">
         
   
+    <article id="post-面试题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/15/面试题/">面试题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##经常遇到的面试题<br>1，获取一堆name名相同的div,点击弹出显示第几个div</p>
+<p>第一种实现的方法</p>
+<pre><code>var boxes = document.getElementsByTagName(&quot;div&quot;);         for(var i = 0; i &lt; boxes.length; i++) {
+    boxes[i].index = i+1; boxes[i].onclick =             function() {
+        alert(this.index); }
+}
+</code></pre><p>第二种实现的方法（函数闭包）</p>
+<pre><code>var boxes = document.getElementsByTagName(&quot;div&quot;);         for(var i = 0; i &lt; boxes.length; i++) {
+    (function(i){
+        boxes[i].onclick = function() {
+            alert(i+1); }
+
+    })(i); 
+
+}
+</code></pre><p>2.abcdefgsdds 获取里面字面最多的字母</p>
+<pre><code>var str = “abcdefgsdds”;
+var obj = {};
+var arr = [];
+var letter;
+for(var i = 0,len = str.length;i&lt;len;i++){ letter =     str[i];
+if(!obj[letter]){ 
+obj[letter] = 1; 
+
+}else{ obj[letter]++;
+
+ }
+}
+var max_key,max_num=0;
+for(key in obj){
+if(max_num &lt;obj[key]){
+max_num = obj[key];
+max_key = key;
+}
+} 
+document.write(“字母:”+max_key+” 次数:”+max_num);
+</code></pre><p>3.abcdefghi 获取ghi怎么实现</p>
+<pre><code>”abcdefghi&quot;.substring(6)
+</code></pre><p>4.‘asdjhklzxc’ 截取’asd’</p>
+<pre><code>”asdjhklzxc&quot;.substring(3,-1) 
+”asdjhklzxc&quot;.substring(0,3)
+</code></pre><p>5.翻转字符串</p>
+<pre><code>”asd&quot;.split(&quot;&quot;).reverse().join(&quot;&quot;)
+</code></pre><p>6.删除数组第一个元素</p>
+<pre><code>arr.shift()
+</code></pre><p>7.[1,2,1,3,2,3,5,6,5] 去除重复元素(很经典的一道题)</p>
+<pre><code>var arr = [1,2,1,3,2,3,5,6,5] ;
+var newArr = [];
+for(var i = 0; i &lt; arr.length; i++) {
+    if(newArr.indexOf(arr[i]) == -1)                 { newArr.push(arr[i]);}
+}
+alert(newArr)
+</code></pre><p>8.JS中有几种数据类型分别是哪几种?</p>
+<pre><code>Number,String,Boolean,Object,Null,Undefined
+</code></pre><p>9.用JS创建一个a标签,在body中显示,点击在新窗又打开</p>
+<pre><code>var alink = document.createElement(&quot;a&quot;);         alink.innerHTML = &quot;google&quot;;
+alink.href = &quot;http://www.google.com&quot;; alink.target =     &quot;_blank&quot;; document.body.appendChild(alink);
+</code></pre><p>10写倒计时 距离2018年还有 多少天多少小时多少分钟多少秒</p>
+<pre><code>var time = document.getElementById(&quot;time&quot;); 
+
+function clock() {
+//设置目标日期
+var targetDate = new Date(2018,0,1);
+var currentDate = new Date();
+var remainTime = targetDate - currentDate;
+//天数
+remainDay = parseInt(remainTime/1000/60/60/24); //小时数
+remainHours = parseInt(remainTime/1000/60/60%24); //分钟
+remainMinutes = parseInt(remainTime/1000/60%60); //秒
+remainSeconds = parseInt(remainTime/1000%60);
+time.innerHTML = remainDay + &quot;天&quot;+remainHours+&quot;小    时&quot;+remainMinutes+&quot;分 钟&quot;+remainSeconds+&quot;秒&quot;;
+}
+setInterval(clock,1000);
+</code></pre><p>11.alert怎样换行（转义）    </p>
+<pre><code>alert(&quot;大家好\n大家好&quot;)
+</code></pre><p>12.==与===的区别?</p>
+<pre><code>==等于,判断值是否相等,会有类型转换 
+===全等 ,判断类型跟值是否相等,类型不会转换
+</code></pre><p>13.有两个对象,var o = {num:1};var p = {num:2};要求书写一段代码,使得o+p===3 为true。</p>
+<pre><code>Object.prototype.toString = function(){ return             this.num;
+}
+</code></pre><p>14.写一个trim函数,兼容IE firefox chrome(正则)</p>
+<pre><code>if(typeof String.prototype.trim !== &quot;function&quot;) { String.prototype.trim = function() {
+return this.replace(/^\s* | \s*$/g,&quot;&quot;); }
+}
+</code></pre><p>15.写一个获取非行间样式的函数</p>
+<pre><code>function getStyle(element,property) {
+if(window.getComputedStyle) {
+return window.getComputedStyle(element,null)    [property];
+}else {
+    return element.currentStyle[property];
+} }
+</code></pre><p>16.编写一个方法 求一个字符串的字节长度(假设一个中文占两个字节)</p>
+<pre><code>var str = ‘22两是’;
+ alert(getStrlen(str))
+function getStrlen(str){ 
+var json = {len:0};
+var re = /[\u4e00-\u9fa5]/;
+for (var i = 0; i &lt; str.length; i++) {
+if(re.test(str.charAt(i))){ 
+    json[‘len&apos;]++;
+} 
+};
+return json[‘len&apos;]+str.length; 
+
+}
+</code></pre><p>17.写出3个使用this的典型应用</p>
+<pre><code>事件: 如onclick this-&gt;发生事件的对象 
+构造函数 this-&gt;new 出来的object
+ call/apply 改变this
+</code></pre><p>18.如何深度克隆</p>
+<pre><code>var arr = [1,2,43];
+var json = {a:6,b:4,c:[1,2,3]}; var str = ‘sdfsdf&apos;;
+var json2 = clone(json); alert(json[‘c&apos;])
+function clone(obj){
+    var oNew = new obj.constructor(obj.valueOf());         if(obj.constructor == Object){
+    for(var i in obj){
+     oNew[i] = obj[i];
+    if(typeof(oNew[i]) == ‘object&apos;){     
+    clone(oNew[i]);
+    }
+
+ }
+}
+return oNew; 
+
+}    
+</code></pre><p>19.JavaScript中如何检测一个变量是一个String类型?请写出函数实现</p>
+<pre><code>typeof(obj) == ‘string&apos; 
+obj.constructor == String;
+</code></pre><p>20.call() 和 .apply() 的区别?</p>
+<pre><code>call方法:
+语法:call(thisObj,Object) 定义:调用一个对象的一个方法,以另    一个对象替换当前对象。 说明:
+call 方法可以用来代替另一个对象调用一个方法。call 方法可将一个    函数的对象上下文从初始的上下文 改变为由 thisObj 指定的新对象。
+如果没有提供 thisObj 参数,那么 Global 对象被用作 thisObj。
+
+apply方法:
+语法:apply(thisObj,[argArray])
+定义:应用某一对象的一个方法,用另一个对象替换当前对象。
+说明:
+如果 argArray 不是一个有效的数组或者不是 arguments 对象,那    么将导致一个 TypeError。
+如果没有提供 argArray 和 thisObj 任何一个参数,那么 Global     对象将被用作 thisObj, 并且无法被传递 任何参数。
+</code></pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/15/面试题/" class="archive-article-date">
+  	<time datetime="2016-07-15T11:18:56.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-15</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-正则" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1198,87 +1384,6 @@ setInterval(draw,1000)
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-third" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/19/third/">神奇的css！竟然可以这样玩转表格</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是在对一个博客模板进行移动端适配时遇到的一个场景。html结构如下：</p>
-<pre><code>&lt;table width=100% class=&quot;Framework&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
-    &lt;tr&gt;.....&lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td class=&quot;LeftCell&quot;&gt;..&lt;/td&gt;                    &lt;td class=&quot;MainCell&quot; width=&quot;100%&quot;&gt;..&lt;/td&gt;   
-    &lt;/tr&gt;
-    &lt;tr&gt;.....&lt;/tr&gt;
-&lt;/table&gt;
-</code></pre><p>要解决的问题是如何在不修改任何html代码的情况下，仅仅通过css实现下面的效果：</p>
-<p>1）改变它们的显示顺序，.MainCell显示在前，.LeftCell显示在后（与html结构中的顺序相反）。</p>
-<p>2）让它们分行显示。 .MainCell与.LeftCell是表格的单元格，它们默认是以列的方式排列在一行显示，如果解决了第1个问题，那就是.MainCell在左，.LeftCell在右；让它们分行方式显示就是.MainCell显示在上面，.LeftCell显示在下面。</p>
-<p>要解决这2个问题，首先要解决1个选择器的问题 —— 如何在没有id与class的情况下，让添加的样式只针对表格（table）的第2行（tr）生效。</p>
-<p>css3中有个伪类选择器可解决这个问题，它就是 :nth-child() （参考资料：CSS3 :nth-child()伪类选择器），于是就有了下面的选择器：</p>
-<pre><code>.Framework tr:nth-child(2){
-}
-</code></pre><p>接下来解决上面的第1个问题 —— 改变元素的显示顺序。</p>
-<p>css3中引人了一个新的布局模型 —— flex （弹性盒模型，flexible box的缩写，参考资料：深入理解CSS弹性盒模型flex）。使用flex布局，可以通过order控制显示顺序（order值小的显示在前面）。</p>
-<p>于是，通过下面的css代码将.LeftCell与.MainCell改为flex布局：</p>
-<pre><code>.Framework tr:nth-child(2){
-    display: flex;
-}
-</code></pre><p>要将.MainCell显示在.LeftCell之前，只需给.LeftCell的order设置一个大于0的值（默认是0，值越大显示越后）即可：</p>
-<pre><code>.LeftCell{
-    order:1;
-}
-</code></pre><p>第1个问题解决。</p>
-<p>紧接着解决第2个问题，让.MainCell与.LeftCell分行显示，也就是显示.MainCell之后，换一行显示.LeftCell。</p>
-<p>css3中强大的flex布局继续发挥作用，通过flex-wrap可以控制flex布局中元素的换行方式，对于我们要解决的问题，使用”wrap”即可：</p>
-<pre><code>.Framework tr:nth-child(2){
-    flex-wrap: wrap;
-}
-</code></pre><p>这篇文章的亮点在于flex，想了解更多 请登录 <a href="http://www.cnblogs.com/xiaohuochai/p/5323146.html" target="_blank" rel="external">http://www.cnblogs.com/xiaohuochai/p/5323146.html</a></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/03/19/third/" class="archive-article-date">
-  	<time datetime="2016-03-19T02:35:11.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-03-19</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/table/">table</a></li></ul>
 	</div>
 
       

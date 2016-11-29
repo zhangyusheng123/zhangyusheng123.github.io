@@ -6,14 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 漫步人生路</title>
+  <title>面试题 | 漫步人生路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="漫步人生路">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="##经常遇到的面试题1，获取一堆name名相同的div,点击弹出显示第几个div
+第一种实现的方法
+var boxes = document.getElementsByTagName(&amp;quot;div&amp;quot;);         for(var i = 0; i &amp;lt; boxes.length; i++) {
+    boxes[i].index = i+1; boxes[i].oncl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试题">
+<meta property="og:url" content="http://yoursite.com/2016/07/15/面试题/index.html">
 <meta property="og:site_name" content="漫步人生路">
+<meta property="og:description" content="##经常遇到的面试题1，获取一堆name名相同的div,点击弹出显示第几个div
+第一种实现的方法
+var boxes = document.getElementsByTagName(&amp;quot;div&amp;quot;);         for(var i = 0; i &amp;lt; boxes.length; i++) {
+    boxes[i].index = i+1; boxes[i].oncl">
+<meta property="og:updated_time" content="2016-11-29T11:41:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="漫步人生路">
+<meta name="twitter:title" content="面试题">
+<meta name="twitter:description" content="##经常遇到的面试题1，获取一堆name名相同的div,点击弹出显示第几个div
+第一种实现的方法
+var boxes = document.getElementsByTagName(&amp;quot;div&amp;quot;);         for(var i = 0; i &amp;lt; boxes.length; i++) {
+    boxes[i].index = i+1; boxes[i].oncl">
   
     <link rel="alternative" href="/atom.xml" title="漫步人生路" type="application/atom+xml">
   
@@ -137,301 +150,220 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-面试题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
+    <h1 class="article-title" itemprop="name">
+      面试题
+    </h1>
   
+
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
       
+        <p>##经常遇到的面试题<br>1，获取一堆name名相同的div,点击弹出显示第几个div</p>
+<p>第一种实现的方法</p>
+<pre><code>var boxes = document.getElementsByTagName(&quot;div&quot;);         for(var i = 0; i &lt; boxes.length; i++) {
+    boxes[i].index = i+1; boxes[i].onclick =             function() {
+        alert(this.index); }
+}
+</code></pre><p>第二种实现的方法（函数闭包）</p>
+<pre><code>var boxes = document.getElementsByTagName(&quot;div&quot;);         for(var i = 0; i &lt; boxes.length; i++) {
+    (function(i){
+        boxes[i].onclick = function() {
+            alert(i+1); }
+
+    })(i); 
+
+}
+</code></pre><p>2.abcdefgsdds 获取里面字面最多的字母</p>
+<pre><code>var str = “abcdefgsdds”;
+var obj = {};
+var arr = [];
+var letter;
+for(var i = 0,len = str.length;i&lt;len;i++){ letter =     str[i];
+if(!obj[letter]){ 
+obj[letter] = 1; 
+
+}else{ obj[letter]++;
+
+ }
+}
+var max_key,max_num=0;
+for(key in obj){
+if(max_num &lt;obj[key]){
+max_num = obj[key];
+max_key = key;
+}
+} 
+document.write(“字母:”+max_key+” 次数:”+max_num);
+</code></pre><p>3.abcdefghi 获取ghi怎么实现</p>
+<pre><code>”abcdefghi&quot;.substring(6)
+</code></pre><p>4.‘asdjhklzxc’ 截取’asd’</p>
+<pre><code>”asdjhklzxc&quot;.substring(3,-1) 
+”asdjhklzxc&quot;.substring(0,3)
+</code></pre><p>5.翻转字符串</p>
+<pre><code>”asd&quot;.split(&quot;&quot;).reverse().join(&quot;&quot;)
+</code></pre><p>6.删除数组第一个元素</p>
+<pre><code>arr.shift()
+</code></pre><p>7.[1,2,1,3,2,3,5,6,5] 去除重复元素(很经典的一道题)</p>
+<pre><code>var arr = [1,2,1,3,2,3,5,6,5] ;
+var newArr = [];
+for(var i = 0; i &lt; arr.length; i++) {
+    if(newArr.indexOf(arr[i]) == -1)                 { newArr.push(arr[i]);}
+}
+alert(newArr)
+</code></pre><p>8.JS中有几种数据类型分别是哪几种?</p>
+<pre><code>Number,String,Boolean,Object,Null,Undefined
+</code></pre><p>9.用JS创建一个a标签,在body中显示,点击在新窗又打开</p>
+<pre><code>var alink = document.createElement(&quot;a&quot;);         alink.innerHTML = &quot;google&quot;;
+alink.href = &quot;http://www.google.com&quot;; alink.target =     &quot;_blank&quot;; document.body.appendChild(alink);
+</code></pre><p>10写倒计时 距离2018年还有 多少天多少小时多少分钟多少秒</p>
+<pre><code>var time = document.getElementById(&quot;time&quot;); 
+
+function clock() {
+//设置目标日期
+var targetDate = new Date(2018,0,1);
+var currentDate = new Date();
+var remainTime = targetDate - currentDate;
+//天数
+remainDay = parseInt(remainTime/1000/60/60/24); //小时数
+remainHours = parseInt(remainTime/1000/60/60%24); //分钟
+remainMinutes = parseInt(remainTime/1000/60%60); //秒
+remainSeconds = parseInt(remainTime/1000%60);
+time.innerHTML = remainDay + &quot;天&quot;+remainHours+&quot;小    时&quot;+remainMinutes+&quot;分 钟&quot;+remainSeconds+&quot;秒&quot;;
+}
+setInterval(clock,1000);
+</code></pre><p>11.alert怎样换行（转义）    </p>
+<pre><code>alert(&quot;大家好\n大家好&quot;)
+</code></pre><p>12.==与===的区别?</p>
+<pre><code>==等于,判断值是否相等,会有类型转换 
+===全等 ,判断类型跟值是否相等,类型不会转换
+</code></pre><p>13.有两个对象,var o = {num:1};var p = {num:2};要求书写一段代码,使得o+p===3 为true。</p>
+<pre><code>Object.prototype.toString = function(){ return             this.num;
+}
+</code></pre><p>14.写一个trim函数,兼容IE firefox chrome(正则)</p>
+<pre><code>if(typeof String.prototype.trim !== &quot;function&quot;) { String.prototype.trim = function() {
+return this.replace(/^\s* | \s*$/g,&quot;&quot;); }
+}
+</code></pre><p>15.写一个获取非行间样式的函数</p>
+<pre><code>function getStyle(element,property) {
+if(window.getComputedStyle) {
+return window.getComputedStyle(element,null)    [property];
+}else {
+    return element.currentStyle[property];
+} }
+</code></pre><p>16.编写一个方法 求一个字符串的字节长度(假设一个中文占两个字节)</p>
+<pre><code>var str = ‘22两是’;
+ alert(getStrlen(str))
+function getStrlen(str){ 
+var json = {len:0};
+var re = /[\u4e00-\u9fa5]/;
+for (var i = 0; i &lt; str.length; i++) {
+if(re.test(str.charAt(i))){ 
+    json[‘len&apos;]++;
+} 
+};
+return json[‘len&apos;]+str.length; 
+
+}
+</code></pre><p>17.写出3个使用this的典型应用</p>
+<pre><code>事件: 如onclick this-&gt;发生事件的对象 
+构造函数 this-&gt;new 出来的object
+ call/apply 改变this
+</code></pre><p>18.如何深度克隆</p>
+<pre><code>var arr = [1,2,43];
+var json = {a:6,b:4,c:[1,2,3]}; var str = ‘sdfsdf&apos;;
+var json2 = clone(json); alert(json[‘c&apos;])
+function clone(obj){
+    var oNew = new obj.constructor(obj.valueOf());         if(obj.constructor == Object){
+    for(var i in obj){
+     oNew[i] = obj[i];
+    if(typeof(oNew[i]) == ‘object&apos;){     
+    clone(oNew[i]);
+    }
+
+ }
+}
+return oNew; 
+
+}    
+</code></pre><p>19.JavaScript中如何检测一个变量是一个String类型?请写出函数实现</p>
+<pre><code>typeof(obj) == ‘string&apos; 
+obj.constructor == String;
+</code></pre><p>20.call() 和 .apply() 的区别?</p>
+<pre><code>call方法:
+语法:call(thisObj,Object) 定义:调用一个对象的一个方法,以另    一个对象替换当前对象。 说明:
+call 方法可以用来代替另一个对象调用一个方法。call 方法可将一个    函数的对象上下文从初始的上下文 改变为由 thisObj 指定的新对象。
+如果没有提供 thisObj 参数,那么 Global 对象被用作 thisObj。
+
+apply方法:
+语法:apply(thisObj,[argArray])
+定义:应用某一对象的一个方法,用另一个对象替换当前对象。
+说明:
+如果 argArray 不是一个有效的数组或者不是 arguments 对象,那    么将导致一个 TypeError。
+如果没有提供 argArray 和 thisObj 任何一个参数,那么 Global     对象将被用作 thisObj, 并且无法被传递 任何参数。
+</code></pre>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/15/面试题/" class="archive-article-date">
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/15/面试题/" class="archive-article-date">
   	<time datetime="2016-07-15T11:18:56.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-15</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/15/面试题/">面试题</a>
-    </h1>
-  
+      
+      
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/02/正则/" class="archive-article-date">
-  	<time datetime="2016-07-02T00:23:24.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/02/正则/">正则</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/07/02/正则/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">正则</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/21/DOM/" class="archive-article-date">
-  	<time datetime="2016-06-21T11:56:51.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/21/DOM/">JavaScript DOM节点和文档类型</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/10/message/" class="archive-article-date">
-  	<time datetime="2016-06-10T12:09:50.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/10/message/">message</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/30/object/" class="archive-article-date">
-  	<time datetime="2016-05-30T06:09:18.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/30/object/">Javascript 面向对象编程：封装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/15/Project/" class="archive-article-date">
-  	<time datetime="2016-05-15T09:15:29.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/15/Project/">JavaScript基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/03/tab/" class="archive-article-date">
-  	<time datetime="2016-05-03T06:34:41.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/03/tab/">tab选项卡</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/28/stringify/" class="archive-article-date">
-  	<time datetime="2016-04-28T02:05:09.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/28/stringify/">stringify</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/20/Jquery入门/" class="archive-article-date">
-  	<time datetime="2016-04-20T01:20:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/20/Jquery入门/">Jquery入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/05/four/" class="archive-article-date">
-  	<time datetime="2016-04-05T06:18:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/05/four/">canvas动态制作表盘</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li></ul>
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
-  
+
+
+
+
 
 
       </div>
@@ -451,8 +383,8 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
