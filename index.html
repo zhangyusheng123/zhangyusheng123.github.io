@@ -139,6 +139,104 @@
       <div class="body-wrap">
         
   
+    <article id="post-stroage" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/10/stroage/">stroage</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##web stroagem模拟数据库</p>
+<p>bouy</p>
+<pre><code>&lt;table&gt;
+    &lt;h1&gt;使用 web stroage模拟数据库&lt;/h1&gt;
+    &lt;tr&gt;&lt;td&gt;姓名:&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;name&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;EMAIL:&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;email&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;电话号码:&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;tel&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;备注:&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;memo&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;保存&quot;                 onclick=&quot;saveStorage();&quot;&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;
+    检索:&lt;input type=&quot;&apos;text&quot; id=&quot;find&quot;&gt;&lt;input type=&quot;button&quot; value=&quot;检索&quot; onclick=&quot;findStorage(&apos;msg&apos;)&quot;
+&lt;/p&gt;
+&lt;p id=&quot;msg&quot;&gt;&lt;/p&gt;
+</code></pre><p>javascript中有两个函数 saveStorage() 和 findStorage()</p>
+<pre><code>&lt;script&gt;
+    function saveStorage(){
+        var data=new Object;
+        data.name=document.getElementById(&quot;name&quot;).value;
+       data.email=document.getElementById(&quot;email&quot;).value:
+        data.tel=document.getElementById(&quot;tel&quot;).value;
+       data.memo=document.getElementById(&quot;memo&quot;).value;
+       var str=JSON.stringify(data);
+        localStorage.setItems(data.name,str);
+      alert(&quot;数据以保存&quot;);
+    }
+
+    function findstorage(id){
+
+        var find=document.getElementById(&apos;find&apos;).value;
+        var str=localStorage.getItem(find);
+        var data=JSON.parse(str);
+        var result=&quot;姓名: &quot;+ data.name+&apos;&lt;br&gt;&apos;;
+        result=&quot;EMAIL: &quot;+ data.email+&apos;&lt;br&gt;&apos;;
+        result=&quot;姓名: &quot;+ data.tel+&apos;&lt;br&gt;&apos;;
+        result=&quot;姓名: &quot;+ data.memo+&apos;&lt;br&gt;&apos;;
+        var target=document.getElementById(&quot;id&quot;);
+        target.innerHTML=result;
+
+
+    }
+
+&lt;/script&gt;
+</code></pre><p>saveStorage()函数流程<br>    1.从各输入文本中获取数据，<br>    2.创建对象，将获取的数据作为对象的属性进行保存；<br>    3.将对象转换为JSON格式的文本数据；<br>    4.将文本数据保存在localStorage中；</p>
+<p>为了将数据保存在一个对象中使用new Object语句创建一个对象，将各个数据保存在该对象的各个属性中，然后为了将对象转换为JSON格式的文本数据，使用JSON对象的stringify方法,    </p>
+<p>var str = JSON.tringify(data);</p>
+<p>该方法只接受一个参数data，它表示要转换成JSON格式文本数据的对象，这个方法的作用是将对象转换成JSON格式的文本数据，并将其返回。</p>
+<p>findStorage()函数流程<br>    1、在localStorage中将检索用的姓名作为键值，获取对应的数据<br>    2、将获取的数据转换成JSON对象<br>    3、取得JSON对象的各个属性值，创建要输出的内容<br>    4、将要输出的内容在页面上输出<br>该函数的关键是使用JSON对象的parse方法，将从localStorage中获取的数据转换成JSON对象。该函数的使用方法如下所示</p>
+<p>var data = JSON.parse(str);</p>
+<p>该方法只接受一个参数str，它表示从localStorage中取得的数据，这个方法的作用是将传入的数据转换成JSON对象，并将其返回。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/08/10/stroage/" class="archive-article-date">
+  	<time datetime="2016-08-10T02:38:46.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-08-10</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-面试题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1209,183 +1307,6 @@ var v2 = jQuery(&apos;#id&apos;);
   	<time datetime="2016-04-20T01:20:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-20</time>
 </a>
       
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-four" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/05/four/">canvas动态制作表盘</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>css样式</p>
-<pre><code>div{
-        text-align: center;
-        margin-top: 250px;
-    }
-#clock{
-    border: 1px solid #ccc;
-}
-</code></pre><p>canvas画布</p>
-<pre><code>&lt;div&gt;
-    &lt;canvas id=&quot;clock&quot; height=&quot;200px&quot; width=&quot;200px&quot;&gt;&lt;/        canvas&gt;
-&lt;/div&gt;
-</code></pre><p>js这块是难点 代码如下;</p>
-<pre><code>var dom=document.getElementById(&apos;clock&apos;);
-var ctx=dom.getContext(&quot;2d&quot;);
-// 获取canvas 画布的 宽和高
-var width =ctx.canvas.width;
-var height =ctx.canvas.height;
-var r=width/2
-// 获得比例系数 画布变大变小 表盘不变    200/width=10/x ===&gt;     x=10*width/200
-var rem= width/200
-// 定义一个方法画圆    
-</code></pre><p>开始步骤以做好下面就是用canvas制作表盘以及表盘中的时针，分针，秒针的制作，    </p>
-<pre><code>function drawBackground(){
-    ctx.save();
-    ctx.translate(r,r)
-    ctx.beginPath();
-    ctx.lineWidth = 10*rem
-    ctx.arc(0,0,r-ctx.lineWidth/2,0,2*Math.PI,false)
-    ctx.stroke()
-
-    var hourNumbers=[3,4,5,6,7,8,9,10,11,12,1,2];
-    ctx.font= 18*rem+&quot;px Arial&quot;
-    ctx.textAlign=&quot;center&quot;;
-    ctx.textBaseline=&quot;middle&quot;
-    hourNumbers.forEach(function(number,i){
-    // 圆的弧长  2πr   圆的弧度  2π
-    // 定义每一个数字对应的弧度
-    // 弧度的计算公式为： 2*PI/360*角度
-    // 例子 30° 角度 的弧度 = 2*PI/360*30
-    var rad=2*Math.PI/12 * i;
-    var x=Math.cos(rad)*(r-30*rem);
-    var y=Math.sin(rad)*(r-30*rem);
-    ctx.fillText(number,x,y);
-});
-// 定义表盘有60个小格
-for(var i=0;i&lt;60;i++){
-    var rad=2*Math.PI/60 * i;
-    var x=Math.cos(rad)*(r-18*rem);
-    var y=Math.sin(rad)*(r-18*rem);
-    ctx.beginPath();
-    if(i%5===0){
-        // 小时数
-        ctx.fillStyle=&quot;#000&quot;;
-        ctx.arc(x,y,2*rem,0,2*Math.PI,false)
-    }else{
-        // 不是小时数出现不同的颜色
-        ctx.fillStyle=&quot;#ccc&quot;;
-        ctx.arc(x,y,2*rem,0,2*Math.PI,false)
-    }
-
-    ctx.fill();
-}
-</code></pre><p>}<br>时针函数封装</p>
-<pre><code>function drawHour(hour,minute){
-    ctx.save()
-    ctx.beginPath();
-    var rad=2*Math.PI/12 * hour;
-    var mard=2*Math.PI/12/60 *minute;
-    ctx.rotate(rad+mard);
-    ctx.lineWidth=6*rem;
-    ctx.lineCap=&quot;round&quot;;
-    ctx.moveTo(0,10*rem);
-    ctx.lineTo(0,-r/2);
-    ctx.stroke()
-    ctx.restore()
-}
-</code></pre><p>分针函数封装</p>
-<pre><code>function drawMinute(minute){
-    ctx.save()
-    ctx.beginPath();
-    var rad=2*Math.PI/60 * minute;
-    ctx.rotate(rad);
-    ctx.lineWidth=3*rem;
-    ctx.lineCap=&quot;round&quot;
-    ctx.moveTo(0,10*rem);
-    ctx.lineTo(0,-r + 30*rem);
-    ctx.stroke()
-    ctx.restore()
-}
-</code></pre><p>秒针函数封装</p>
-<pre><code>function drawSecond(second){
-    ctx.save();
-    ctx.beginPath();
-    ctx.fillStyle=&quot;red&quot;
-    var rad=2*Math.PI/60 * second;
-    ctx.rotate(rad);
-    ctx.moveTo(-2*rem,20*rem);
-    ctx.lineTo(2*rem,20*rem);
-    ctx.lineTo(1,-r+18*rem);
-    ctx.lineTo(-1,-r+18*rem)
-    ctx.fill();
-    ctx.restore();
-}
-</code></pre><p>表盘做的差不多了，为了美观我们给中间的点做成圆会好看些</p>
-<pre><code>function drawDot(){
-    ctx.beginPath();
-    ctx.fillStyle=&quot;#fff&quot;
-    ctx.arc(0,0,3*rem,0,2*Math.PI,false);
-    ctx.fill();
-}
-</code></pre><p>最后一步执行各个函数 外加一个定时器 小伙伴们 跑起来了</p>
-<pre><code>function draw(){
-    ctx.clearRect(0,0,width,height)
-    var now=new Date();
-    var hour=now.getHours();
-    var minute =now.getMinutes();
-    var second =now.getSeconds();
-    drawBackground()
-    drawHour(hour,minute);
-    drawMinute(minute);
-    drawSecond(second);
-    drawDot();
-    ctx.restore();
-}
-draw()
-setInterval(draw,1000)
-</code></pre><p>感兴趣的网友可以直接在编译器中复用上面的代码直接运行即可；(ˇˍˇ） 想自己做的网友必须要有Javascript，canvas的知识，感觉不错的可以收藏哦，要有哪里不懂的可以直接给我留言</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/04/05/four/" class="archive-article-date">
-  	<time datetime="2016-04-05T06:18:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-05</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li></ul>
-	</div>
-
       
 
       <div class="clearfix"></div>

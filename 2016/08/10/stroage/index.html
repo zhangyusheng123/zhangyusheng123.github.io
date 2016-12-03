@@ -6,14 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2016 | 漫步人生路</title>
+  <title>stroage | 漫步人生路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="漫步人生路">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+  <meta name="description" content="##web stroagem模拟数据库
+bouy
+&amp;lt;table&amp;gt;
+    &amp;lt;h1&amp;gt;使用 web stroage模拟数据库&amp;lt;/h1&amp;gt;
+    &amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;姓名:&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&amp;lt;input type=&amp;quot;text&amp;quot; id=&amp;quot;name&amp;quot;&amp;gt;&amp;lt;/td&amp;gt;&amp;l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="stroage">
+<meta property="og:url" content="http://yoursite.com/2016/08/10/stroage/index.html">
 <meta property="og:site_name" content="漫步人生路">
+<meta property="og:description" content="##web stroagem模拟数据库
+bouy
+&amp;lt;table&amp;gt;
+    &amp;lt;h1&amp;gt;使用 web stroage模拟数据库&amp;lt;/h1&amp;gt;
+    &amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;姓名:&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&amp;lt;input type=&amp;quot;text&amp;quot; id=&amp;quot;name&amp;quot;&amp;gt;&amp;lt;/td&amp;gt;&amp;l">
+<meta property="og:updated_time" content="2016-12-03T07:08:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="漫步人生路">
+<meta name="twitter:title" content="stroage">
+<meta name="twitter:description" content="##web stroagem模拟数据库
+bouy
+&amp;lt;table&amp;gt;
+    &amp;lt;h1&amp;gt;使用 web stroage模拟数据库&amp;lt;/h1&amp;gt;
+    &amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;姓名:&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&amp;lt;input type=&amp;quot;text&amp;quot; id=&amp;quot;name&amp;quot;&amp;gt;&amp;lt;/td&amp;gt;&amp;l">
   
     <link rel="alternative" href="/atom.xml" title="漫步人生路" type="application/atom+xml">
   
@@ -137,296 +153,132 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-stroage" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
+    <h1 class="article-title" itemprop="name">
+      stroage
+    </h1>
   
+
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
       
+        <p>##web stroagem模拟数据库</p>
+<p>bouy</p>
+<pre><code>&lt;table&gt;
+    &lt;h1&gt;使用 web stroage模拟数据库&lt;/h1&gt;
+    &lt;tr&gt;&lt;td&gt;姓名:&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;name&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;EMAIL:&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;email&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;电话号码:&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;tel&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;备注:&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;memo&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;保存&quot;                 onclick=&quot;saveStorage();&quot;&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;
+    检索:&lt;input type=&quot;&apos;text&quot; id=&quot;find&quot;&gt;&lt;input type=&quot;button&quot; value=&quot;检索&quot; onclick=&quot;findStorage(&apos;msg&apos;)&quot;
+&lt;/p&gt;
+&lt;p id=&quot;msg&quot;&gt;&lt;/p&gt;
+</code></pre><p>javascript中有两个函数 saveStorage() 和 findStorage()</p>
+<pre><code>&lt;script&gt;
+    function saveStorage(){
+        var data=new Object;
+        data.name=document.getElementById(&quot;name&quot;).value;
+       data.email=document.getElementById(&quot;email&quot;).value:
+        data.tel=document.getElementById(&quot;tel&quot;).value;
+       data.memo=document.getElementById(&quot;memo&quot;).value;
+       var str=JSON.stringify(data);
+        localStorage.setItems(data.name,str);
+      alert(&quot;数据以保存&quot;);
+    }
+
+    function findstorage(id){
+
+        var find=document.getElementById(&apos;find&apos;).value;
+        var str=localStorage.getItem(find);
+        var data=JSON.parse(str);
+        var result=&quot;姓名: &quot;+ data.name+&apos;&lt;br&gt;&apos;;
+        result=&quot;EMAIL: &quot;+ data.email+&apos;&lt;br&gt;&apos;;
+        result=&quot;姓名: &quot;+ data.tel+&apos;&lt;br&gt;&apos;;
+        result=&quot;姓名: &quot;+ data.memo+&apos;&lt;br&gt;&apos;;
+        var target=document.getElementById(&quot;id&quot;);
+        target.innerHTML=result;
+
+
+    }
+
+&lt;/script&gt;
+</code></pre><p>saveStorage()函数流程<br>    1.从各输入文本中获取数据，<br>    2.创建对象，将获取的数据作为对象的属性进行保存；<br>    3.将对象转换为JSON格式的文本数据；<br>    4.将文本数据保存在localStorage中；</p>
+<p>为了将数据保存在一个对象中使用new Object语句创建一个对象，将各个数据保存在该对象的各个属性中，然后为了将对象转换为JSON格式的文本数据，使用JSON对象的stringify方法,    </p>
+<p>var str = JSON.tringify(data);</p>
+<p>该方法只接受一个参数data，它表示要转换成JSON格式文本数据的对象，这个方法的作用是将对象转换成JSON格式的文本数据，并将其返回。</p>
+<p>findStorage()函数流程<br>    1、在localStorage中将检索用的姓名作为键值，获取对应的数据<br>    2、将获取的数据转换成JSON对象<br>    3、取得JSON对象的各个属性值，创建要输出的内容<br>    4、将要输出的内容在页面上输出<br>该函数的关键是使用JSON对象的parse方法，将从localStorage中获取的数据转换成JSON对象。该函数的使用方法如下所示</p>
+<p>var data = JSON.parse(str);</p>
+<p>该方法只接受一个参数str，它表示从localStorage中取得的数据，这个方法的作用是将传入的数据转换成JSON对象，并将其返回。</p>
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/08/10/stroage/" class="archive-article-date">
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/08/10/stroage/" class="archive-article-date">
   	<time datetime="2016-08-10T02:38:46.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-08-10</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/10/stroage/">stroage</a>
-    </h1>
-  
+      
+      
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/15/面试题/" class="archive-article-date">
-  	<time datetime="2016-07-15T11:18:56.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/15/面试题/">面试题</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/07/15/面试题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">面试题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/02/正则/" class="archive-article-date">
-  	<time datetime="2016-07-02T00:23:24.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/02/正则/">正则</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/21/DOM/" class="archive-article-date">
-  	<time datetime="2016-06-21T11:56:51.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/21/DOM/">JavaScript DOM节点和文档类型</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/10/message/" class="archive-article-date">
-  	<time datetime="2016-06-10T12:09:50.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/10/message/">message</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/30/object/" class="archive-article-date">
-  	<time datetime="2016-05-30T06:09:18.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/30/object/">Javascript 面向对象编程：封装</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/15/Project/" class="archive-article-date">
-  	<time datetime="2016-05-15T09:15:29.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/15/Project/">JavaScript基础</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/03/tab/" class="archive-article-date">
-  	<time datetime="2016-05-03T06:34:41.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/03/tab/">tab选项卡</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/28/stringify/" class="archive-article-date">
-  	<time datetime="2016-04-28T02:05:09.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/28/stringify/">stringify</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/20/Jquery入门/" class="archive-article-date">
-  	<time datetime="2016-04-20T01:20:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/20/Jquery入门/">Jquery入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2016/page/2/">2</a><a class="extend next" rel="next" href="/archives/2016/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
       </div>
@@ -446,8 +298,8 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
