@@ -139,6 +139,87 @@
       <div class="body-wrap">
         
   
+    <article id="post-stringify" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/28/stringify/">stringify</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>js数据类型：</p>
+<pre><code>字符串、数字、布尔、数组、对象、Null、Undefined
+</code></pre><p>js Object</p>
+<pre><code>var data = {
+    &quot;name&quot;:&quot;yfs&quot;,
+    &quot;age&quot;:28,
+    &quot;boy&quot;:true,
+    &quot;language&quot;:[&quot;chinese&quot;, &quot;english&quot;],
+    &quot;address&quot;:{
+    &quot;provice&quot;:&quot;shanxi&quot;,
+    &quot;city&quot;:&quot;xian&quot;
+    }
+};
+</code></pre><p>JSON.stringify();</p>
+<pre><code>var jsonString = JSON.stringify(data);
+console.log(jsonString);
+console.log(typeof(jsonString));
+
+    //结果：
+ {&quot;name&quot;:&quot;yfs&quot;,&quot;age&quot;:28,&quot;boy&quot;:true,&quot;language&quot;:    [&quot;chinese&quot;,&quot;english&quot;],&quot;address&quot;:{&quot;p
+rovice&quot;:&quot;shanxi&quot;,&quot;city&quot;:&quot;xian&quot;}}
+
+//类型：string
+var a = &apos;{&quot;name&quot;:&quot;yfs&quot;,&quot;age&quot;:    28,&quot;boy&quot;:true,&quot;language&quot;:[&quot;chinese&quot;,&quot;english&quot;],&quot;address&quot;:{&quot;p
+rovice&quot;:&quot;shanxi&quot;,&quot;city&quot;:&quot;xian&quot;}}&apos;;
+</code></pre><p>JSON.parse();</p>
+<pre><code>var jsObject = JSON.parse(jsonString);
+console.log(jsObject);
+console.log(typeof(jsObject));
+
+//结果：
+{ name: &apos;yfs&apos;,
+  age: 28,
+  boy: true,language: 
+  [ &apos;chinese&apos;, &apos;english&apos; ],
+  address: { provice: &apos;shanxi&apos;, city: &apos;xian&apos; } }
+//类型：object
+</code></pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/04/28/stringify/" class="archive-article-date">
+  	<time datetime="2016-04-28T02:05:09.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-28</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Jquery入门" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     

@@ -6,14 +6,51 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 漫步人生路</title>
+  <title>ball | 漫步人生路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="漫步人生路">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="##js实现弹球效果样式如下
+#div1{
+        position: absolute;
+        background: red;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+
+
+&amp;lt;body&amp;gt;
+    &amp;lt;input type=&amp;quot;button">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ball">
+<meta property="og:url" content="http://yoursite.com/2016/09/25/ball/index.html">
 <meta property="og:site_name" content="漫步人生路">
+<meta property="og:description" content="##js实现弹球效果样式如下
+#div1{
+        position: absolute;
+        background: red;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+
+
+&amp;lt;body&amp;gt;
+    &amp;lt;input type=&amp;quot;button">
+<meta property="og:updated_time" content="2016-12-09T07:14:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="漫步人生路">
+<meta name="twitter:title" content="ball">
+<meta name="twitter:description" content="##js实现弹球效果样式如下
+#div1{
+        position: absolute;
+        background: red;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+
+
+&amp;lt;body&amp;gt;
+    &amp;lt;input type=&amp;quot;button">
   
     <link rel="alternative" href="/atom.xml" title="漫步人生路" type="application/atom+xml">
   
@@ -137,296 +174,120 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-ball" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
+    <h1 class="article-title" itemprop="name">
+      ball
+    </h1>
   
+
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
       
+        <p>##js实现弹球效果<br>样式如下</p>
+<pre><code>#div1{
+        position: absolute;
+        background: red;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+
+
+&lt;body&gt;
+    &lt;input type=&quot;button&quot; value=&quot;按钮&quot;&gt;
+    &lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;    
+&lt;/body&gt;
+</code></pre><p>具体实现过程 （加速运动，外加摩擦系数）</p>
+<pre><code>&lt;script&gt;
+    window.onload=function(){
+    var div1=document.getElementById(&quot;div1&quot;);
+    var inp=document.querySelector(&quot;[type=button]&quot;)
+    console.log(inp)
+    var iSpeed=0;
+    var timer=null;
+    inp.onclick=function(){
+        startMove();
+    }
+    function startMove(){
+        clearInterval(timer);
+        timer=setInterval(function(){
+            iSpeed+=3;
+            var T=div1.offsetTop+iSpeed
+                    if(T&gt;document.documentElement.clientHeight-div1.offsetHeight){
+                T=document.documentElement.clientHeight-div1.offsetHeight
+                iSpeed*=-1;
+                iSpeed*=0.75;
+            }
+            div1.style.top=T+&quot;px&quot;;
+        },30)
+    }
+}
+
+&lt;/script&gt;
+</code></pre><p>上面弹球的实现方法就是利用我前几篇博客中提到的碰撞检测，让小球能最终停下来就是利用摩擦系数，想着挺难 ，真做起来没什么其他难点</p>
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/09/25/ball/" class="archive-article-date">
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/25/ball/" class="archive-article-date">
   	<time datetime="2016-09-25T07:07:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-25</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/25/ball/">ball</a>
-    </h1>
-  
+      
+      
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/09/05/auto/" class="archive-article-date">
-  	<time datetime="2016-09-05T06:48:51.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/05/auto/">auto</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/09/05/auto/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">auto</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/08/03/stroage/" class="archive-article-date">
-  	<time datetime="2016-08-03T02:38:46.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-08-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/03/stroage/">stroage</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/15/面试题/" class="archive-article-date">
-  	<time datetime="2016-07-15T11:18:56.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/15/面试题/">面试题</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/02/正则/" class="archive-article-date">
-  	<time datetime="2016-07-02T00:23:24.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/02/正则/">正则</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/21/DOM/" class="archive-article-date">
-  	<time datetime="2016-06-21T11:56:51.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/21/DOM/">JavaScript DOM节点和文档类型</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/10/message/" class="archive-article-date">
-  	<time datetime="2016-06-10T12:09:50.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/10/message/">message</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/30/object/" class="archive-article-date">
-  	<time datetime="2016-05-30T06:09:18.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/30/object/">Javascript 面向对象编程：封装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/15/Project/" class="archive-article-date">
-  	<time datetime="2016-05-15T09:15:29.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/15/Project/">JavaScript基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/03/tab/" class="archive-article-date">
-  	<time datetime="2016-05-03T06:34:41.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/03/tab/">tab选项卡</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
       </div>
@@ -446,8 +307,8 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

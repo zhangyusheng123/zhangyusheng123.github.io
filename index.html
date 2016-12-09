@@ -139,6 +139,92 @@
       <div class="body-wrap">
         
   
+    <article id="post-ball" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/25/ball/">ball</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##js实现弹球效果<br>样式如下</p>
+<pre><code>#div1{
+        position: absolute;
+        background: red;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+
+
+&lt;body&gt;
+    &lt;input type=&quot;button&quot; value=&quot;按钮&quot;&gt;
+    &lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;    
+&lt;/body&gt;
+</code></pre><p>具体实现过程 （加速运动，外加摩擦系数）</p>
+<pre><code>&lt;script&gt;
+    window.onload=function(){
+    var div1=document.getElementById(&quot;div1&quot;);
+    var inp=document.querySelector(&quot;[type=button]&quot;)
+    console.log(inp)
+    var iSpeed=0;
+    var timer=null;
+    inp.onclick=function(){
+        startMove();
+    }
+    function startMove(){
+        clearInterval(timer);
+        timer=setInterval(function(){
+            iSpeed+=3;
+            var T=div1.offsetTop+iSpeed
+                    if(T&gt;document.documentElement.clientHeight-div1.offsetHeight){
+                T=document.documentElement.clientHeight-div1.offsetHeight
+                iSpeed*=-1;
+                iSpeed*=0.75;
+            }
+            div1.style.top=T+&quot;px&quot;;
+        },30)
+    }
+}
+
+&lt;/script&gt;
+</code></pre><p>上面弹球的实现方法就是利用我前几篇博客中提到的碰撞检测，让小球能最终停下来就是利用摩擦系数，想着挺难 ，真做起来没什么其他难点</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/25/ball/" class="archive-article-date">
+  	<time datetime="2016-09-25T07:07:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-25</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-auto" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1248,87 +1334,6 @@ for(var i=0;i&lt;btn.length;i++){
       
       <a href="/2016/05/03/tab/" class="archive-article-date">
   	<time datetime="2016-05-03T06:34:41.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-03</time>
-</a>
-      
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-stringify" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/28/stringify/">stringify</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>js数据类型：</p>
-<pre><code>字符串、数字、布尔、数组、对象、Null、Undefined
-</code></pre><p>js Object</p>
-<pre><code>var data = {
-    &quot;name&quot;:&quot;yfs&quot;,
-    &quot;age&quot;:28,
-    &quot;boy&quot;:true,
-    &quot;language&quot;:[&quot;chinese&quot;, &quot;english&quot;],
-    &quot;address&quot;:{
-    &quot;provice&quot;:&quot;shanxi&quot;,
-    &quot;city&quot;:&quot;xian&quot;
-    }
-};
-</code></pre><p>JSON.stringify();</p>
-<pre><code>var jsonString = JSON.stringify(data);
-console.log(jsonString);
-console.log(typeof(jsonString));
-
-    //结果：
- {&quot;name&quot;:&quot;yfs&quot;,&quot;age&quot;:28,&quot;boy&quot;:true,&quot;language&quot;:    [&quot;chinese&quot;,&quot;english&quot;],&quot;address&quot;:{&quot;p
-rovice&quot;:&quot;shanxi&quot;,&quot;city&quot;:&quot;xian&quot;}}
-
-//类型：string
-var a = &apos;{&quot;name&quot;:&quot;yfs&quot;,&quot;age&quot;:    28,&quot;boy&quot;:true,&quot;language&quot;:[&quot;chinese&quot;,&quot;english&quot;],&quot;address&quot;:{&quot;p
-rovice&quot;:&quot;shanxi&quot;,&quot;city&quot;:&quot;xian&quot;}}&apos;;
-</code></pre><p>JSON.parse();</p>
-<pre><code>var jsObject = JSON.parse(jsonString);
-console.log(jsObject);
-console.log(typeof(jsObject));
-
-//结果：
-{ name: &apos;yfs&apos;,
-  age: 28,
-  boy: true,language: 
-  [ &apos;chinese&apos;, &apos;english&apos; ],
-  address: { provice: &apos;shanxi&apos;, city: &apos;xian&apos; } }
-//类型：object
-</code></pre>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/04/28/stringify/" class="archive-article-date">
-  	<time datetime="2016-04-28T02:05:09.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-28</time>
 </a>
       
       
