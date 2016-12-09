@@ -139,6 +139,100 @@
       <div class="body-wrap">
         
   
+    <article id="post-auto" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/05/auto/">auto</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##居中的几种常用的方法<br>css部分</p>
+<pre><code>.box{
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 800px;
+    height: 400px;
+    background: cyan;
+}
+&lt;!--方法一--&gt;
+很多人都没见过的一种居中方法 ，绝对定位的同时，有margin:auto
+ #one {
+    width: 100px;
+    height: 100px; 
+    border: 4px solid red;
+    position: absolute; 
+    /*四个值必须全部都用*/
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+&lt;!--方法二--&gt;
+#two {
+    width: 100px;
+    height: 100px;
+    border: 4px solid red;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+&lt;!--方法三  比较常用--&gt;
+#three {
+    width: 100px;
+    height: 100px;
+    border: 4px solid red; 
+    position: absolute; 
+    left: 50%;
+    right: 50%; 
+    margin-left: -50px; 
+    margin-top: -50px;
+}
+</code></pre><p>html部分</p>
+<pre><code>&lt;div class=&quot;box&quot;&gt;
+    &lt;div id=&quot;one&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;two&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;three&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/05/auto/" class="archive-article-date">
+  	<time datetime="2016-09-05T06:48:51.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-05</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-stroage" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -149,7 +243,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/10/stroage/">stroage</a>
+      <a class="article-title" href="/2016/08/03/stroage/">stroage</a>
     </h1>
   
 
@@ -197,7 +291,7 @@
         result=&quot;EMAIL: &quot;+ data.email+&apos;&lt;br&gt;&apos;;
         result=&quot;姓名: &quot;+ data.tel+&apos;&lt;br&gt;&apos;;
         result=&quot;姓名: &quot;+ data.memo+&apos;&lt;br&gt;&apos;;
-        var target=document.getElementById(&quot;id&quot;);
+        var target=document.getElementById(id);
         target.innerHTML=result;
 
 
@@ -216,8 +310,8 @@
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/08/10/stroage/" class="archive-article-date">
-  	<time datetime="2016-08-10T02:38:46.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-08-10</time>
+      <a href="/2016/08/03/stroage/" class="archive-article-date">
+  	<time datetime="2016-08-03T02:38:46.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-08-03</time>
 </a>
       
       
@@ -1254,76 +1348,6 @@ console.log(typeof(jsObject));
 
 
   
-    <article id="post-Jquery入门" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/20/Jquery入门/">Jquery入门</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在学习jQuery，在网上看到有几篇关于jQuery的文章，写的不错转载过来跟大家分享一下；简单的介绍一下用Jquery和不用Jquery获取元素</p>
-<p>不使用JQuery时获取DOM文本的操作如下：</p>
-<pre><code>document.getElementById(&apos;info&apos;).value = &apos;Hello World!&apos;;
-</code></pre><p>使用JQuery时获取DOM文本操作如下：</p>
-<pre><code>$(&apos;#info&apos;).val(&apos;Hello World!&apos;);
-</code></pre><p>不难看出Jquery的优点就是是代码变得更加简练；</p>
-<p>Jquery能做什么？</p>
-<p>   1.方便的选取DOM元素，操作DOM元素。（HTML元素选取、HTML元素操作、获取DOM元素、动态修改页面样式、动态改变DOM内容）</p>
-<ol>
-<li><p>响应用户操作。（HTML事件函数、JavaScript特效和动画、响应用户的交互操作、为页面添加动态效果）<br>3.简化AJAX操作。（方便地为网站提供AJAX交互、统一Ajax操作）</p>
-<p>也就是能方便DOM的选取和操作，响应用户操作，简化Ajax操作。</p>
-</li>
-</ol>
-<p>Jquery和DOM的关系</p>
-<p>JQuery对象就是用JQuery包装DOM之后产生的对象。JQuery对象是JQuery独有的，可以使用JQuery的各种方法。</p>
-<pre><code>$(&quot;#test&quot;).html();
-</code></pre><p>意思是指：获取ID为test的元素内的html代码。其中html()是jQuery里的方法 。</p>
-<p>这段代码的作用等同于用DOM实现代码：</p>
-<pre><code>document.getElementById(&quot;id&quot;).innerHTML;
-</code></pre><p>用#id作为选择器获取得的是jQuery对象document.getElementById(“id”)得到的DOM对象，这两者并不等价。</p>
-<p>JQuery中的“$”有什么作用</p>
-<p>$其实就是jQuery的别称。是jQuery提供的一个函数，用来将DOM元素、选择器包装成jQuery对象。</p>
-<pre><code>var v1 = $(&apos;#id&apos;);
-var v2 = jQuery(&apos;#id&apos;);
-</code></pre><p>以上两者等价</p>
-<p>所以”$”其实是一个符号，$()代替了jQuery(),当然你也可以使用其他的字符来代替”$”</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/04/20/Jquery入门/" class="archive-article-date">
-  	<time datetime="2016-04-20T01:20:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-20</time>
-</a>
-      
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1400,15 +1424,23 @@ var v2 = jQuery(&apos;#id&apos;);
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://XiaojunMr.github.io/">李晓军</a>
   	        
-  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://guardltw.github.io//">李帅</a>
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://guardltw.github.io/">李帅</a>
   	        
-  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://chengzefeng.github.io//">程泽峰</a>
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://chengzefeng.github.io/">程泽峰</a>
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://gedapao.github.io/">葛嘉阳</a>
   	        
-  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wjydc.github.io//">魏娇</a>
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wjydc.github.io/">魏娇</a>
   	        
-  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://dsfsyk.github.io//">丁赛锋</a>
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://dsfsyk.github.io/">丁赛锋</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://wangyalijas.github.io/">王雅莉</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://zjflove.github.io/">章江峰</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://xxq1014.github.io/">许徐钱</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://wzj1996.github.io/">吴作杰</a>
   	        
   	        </div>
   		
