@@ -6,14 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2016 | 漫步人生路</title>
+  <title>操作 | 漫步人生路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="漫步人生路">
-<meta property="og:url" content="http://yoursite.com/archives/2016/page/2/index.html">
+  <meta name="description" content="##php 增删改查函数封装数据库添加函数
+function add($sql){
+    $link=mysqli_connect(&amp;quot;localhost&amp;quot;,&amp;quot;root&amp;quot;,&amp;quot;root&amp;quot;,&amp;quot;db&amp;quot;);
+    mysqli_query($link,&amp;quot;set names utf8&amp;quot;);
+    $res">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作">
+<meta property="og:url" content="http://yoursite.com/2016/11/08/操作/index.html">
 <meta property="og:site_name" content="漫步人生路">
+<meta property="og:description" content="##php 增删改查函数封装数据库添加函数
+function add($sql){
+    $link=mysqli_connect(&amp;quot;localhost&amp;quot;,&amp;quot;root&amp;quot;,&amp;quot;root&amp;quot;,&amp;quot;db&amp;quot;);
+    mysqli_query($link,&amp;quot;set names utf8&amp;quot;);
+    $res">
+<meta property="og:updated_time" content="2016-12-13T02:04:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="漫步人生路">
+<meta name="twitter:title" content="操作">
+<meta name="twitter:description" content="##php 增删改查函数封装数据库添加函数
+function add($sql){
+    $link=mysqli_connect(&amp;quot;localhost&amp;quot;,&amp;quot;root&amp;quot;,&amp;quot;root&amp;quot;,&amp;quot;db&amp;quot;);
+    mysqli_query($link,&amp;quot;set names utf8&amp;quot;);
+    $res">
   
     <link rel="alternative" href="/atom.xml" title="漫步人生路" type="application/atom+xml">
   
@@ -137,311 +153,154 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
+    <h1 class="article-title" itemprop="name">
+      操作
+    </h1>
   
+
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##php 增删改查函数封装<br>数据库添加函数</p>
+<pre><code>function add($sql){
+    $link=mysqli_connect(&quot;localhost&quot;,&quot;root&quot;,&quot;root&quot;,&quot;db&quot;);
+    mysqli_query($link,&quot;set names utf8&quot;);
+    $res=mysqli_query($link,$sql);
+    if($res){
+        return true;
+    }else{
+        return false;
+    }
+}
+$sql=&quot;INSERT INTO users (username,age,pwd) VALUES (&apos;王健林&apos;,40,123000)&quot;;
+ $result=add($sql);
+if($result){
+echo &quot;添加成功&quot;;
+ }else{
+    echo &quot;添加失败&quot;;
+}
+</code></pre><p>更新数据库</p>
+<pre><code>function updata($sql){
+// 连接数据库
+$link=mysqli_connect(&quot;localhost&quot;,&quot;root&quot;,&quot;&quot;,&quot;house&quot;);
+// 设置编码格式
+mysqli_query($link,&quot;set names utf8&quot;);
+// 连接数据库返回结果
+$res=mysqli_query($link,$sql);
+if($res){
+    return true;
+}else{
+    return false;
+}
+}
+$sql=&quot;UPDATE users SET username=&apos;王林&apos; WHERE id=28&quot;;
+$res=updata($sql);
+if($res){
+    echo &quot;更新成功&quot;;
+}else{
+    echo &quot;更行失败&quot;;
+}
+</code></pre><p>删除数据库</p>
+<pre><code>function delete($sql){
+// 连接数据库
+$link=mysqli_connect(&quot;localhost&quot;,&quot;root&quot;,&quot;&quot;,&quot;house&quot;);
+// 设置编码格式
+mysqli_query($link,&quot;set names utf8&quot;);
+// 连接数据库返回结果
+$res=mysqli_query($link,$sql);
+if($res){
+    return true;
+}else{
+    return false;
+}
+}
+$sql=&quot;DELETE FROM users WHERE id=23&quot;;
+$res=delete($sql);
+if($res){
+echo &quot;删除成功&quot;;
+}else{
+echo &quot;删除失败&quot;;
+}
+</code></pre><p>查询数据库</p>
+<pre><code>function getList($sql){
+            $link=mysqli_connect(&quot;localhost&quot;,&quot;root&quot;,&quot;&quot;,&quot;house&quot;);
+        mysqli_query($link,&quot;set names utf8&quot;);
+        $res=mysqli_query($link,$sql);
+        while($list=mysqli_fetch_assoc($res)){
+        $arr[]=$list;
+    };
+    return $arr;
+}
+&lt;!--解析数组函数封装--&gt;
+function pre($data){
+echo &quot;&lt;pre&gt;&quot;;
+print_r($data);
+echo &quot;&lt;/pre&gt;&quot;;
+}
+</code></pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/08/操作/" class="archive-article-date">
+  	<time datetime="2016-11-08T05:56:09.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-08</time>
+</a>
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/10/message/" class="archive-article-date">
-  	<time datetime="2016-06-10T12:09:50.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/10/message/">message</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/30/object/" class="archive-article-date">
-  	<time datetime="2016-05-30T06:09:18.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/30/object/">Javascript 面向对象编程：封装</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/02/php/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">php</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/15/Project/" class="archive-article-date">
-  	<time datetime="2016-05-15T09:15:29.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/15/Project/">JavaScript基础</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/03/tab/" class="archive-article-date">
-  	<time datetime="2016-05-03T06:34:41.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-05-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/03/tab/">tab选项卡</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/28/stringify/" class="archive-article-date">
-  	<time datetime="2016-04-28T02:05:09.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/28/stringify/">stringify</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/20/Jquery入门/" class="archive-article-date">
-  	<time datetime="2016-04-20T01:20:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/20/Jquery入门/">Jquery入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/05/four/" class="archive-article-date">
-  	<time datetime="2016-04-05T06:18:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/05/four/">canvas动态制作表盘</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li></ul>
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/19/third/" class="archive-article-date">
-  	<time datetime="2016-03-19T02:35:11.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/19/third/">神奇的css！竟然可以这样玩转表格</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/table/">table</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/04/second/" class="archive-article-date">
-  	<time datetime="2016-03-04T13:29:18.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-03-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/04/second/">超实用的知识点</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/div-javascript/">div,javascript</a></li></ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/02/26/hello-world/" class="archive-article-date">
-  	<time datetime="2016-02-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-02-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/26/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2016/">&laquo; Prev</a><a class="page-number" href="/archives/2016/">1</a><span class="page-number current">2</span>
-    </nav>
-  
 
 
       </div>
@@ -461,8 +320,8 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

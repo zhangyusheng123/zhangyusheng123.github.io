@@ -139,6 +139,126 @@
       <div class="body-wrap">
         
   
+    <article id="post-操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/08/操作/">操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##php 增删改查函数封装<br>数据库添加函数</p>
+<pre><code>function add($sql){
+    $link=mysqli_connect(&quot;localhost&quot;,&quot;root&quot;,&quot;root&quot;,&quot;db&quot;);
+    mysqli_query($link,&quot;set names utf8&quot;);
+    $res=mysqli_query($link,$sql);
+    if($res){
+        return true;
+    }else{
+        return false;
+    }
+}
+$sql=&quot;INSERT INTO users (username,age,pwd) VALUES (&apos;王健林&apos;,40,123000)&quot;;
+ $result=add($sql);
+if($result){
+echo &quot;添加成功&quot;;
+ }else{
+    echo &quot;添加失败&quot;;
+}
+</code></pre><p>更新数据库</p>
+<pre><code>function updata($sql){
+// 连接数据库
+$link=mysqli_connect(&quot;localhost&quot;,&quot;root&quot;,&quot;&quot;,&quot;house&quot;);
+// 设置编码格式
+mysqli_query($link,&quot;set names utf8&quot;);
+// 连接数据库返回结果
+$res=mysqli_query($link,$sql);
+if($res){
+    return true;
+}else{
+    return false;
+}
+}
+$sql=&quot;UPDATE users SET username=&apos;王林&apos; WHERE id=28&quot;;
+$res=updata($sql);
+if($res){
+    echo &quot;更新成功&quot;;
+}else{
+    echo &quot;更行失败&quot;;
+}
+</code></pre><p>删除数据库</p>
+<pre><code>function delete($sql){
+// 连接数据库
+$link=mysqli_connect(&quot;localhost&quot;,&quot;root&quot;,&quot;&quot;,&quot;house&quot;);
+// 设置编码格式
+mysqli_query($link,&quot;set names utf8&quot;);
+// 连接数据库返回结果
+$res=mysqli_query($link,$sql);
+if($res){
+    return true;
+}else{
+    return false;
+}
+}
+$sql=&quot;DELETE FROM users WHERE id=23&quot;;
+$res=delete($sql);
+if($res){
+echo &quot;删除成功&quot;;
+}else{
+echo &quot;删除失败&quot;;
+}
+</code></pre><p>查询数据库</p>
+<pre><code>function getList($sql){
+            $link=mysqli_connect(&quot;localhost&quot;,&quot;root&quot;,&quot;&quot;,&quot;house&quot;);
+        mysqli_query($link,&quot;set names utf8&quot;);
+        $res=mysqli_query($link,$sql);
+        while($list=mysqli_fetch_assoc($res)){
+        $arr[]=$list;
+    };
+    return $arr;
+}
+&lt;!--解析数组函数封装--&gt;
+function pre($data){
+echo &quot;&lt;pre&gt;&quot;;
+print_r($data);
+echo &quot;&lt;/pre&gt;&quot;;
+}
+</code></pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/08/操作/" class="archive-article-date">
+  	<time datetime="2016-11-08T05:56:09.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-08</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-php" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1017,136 +1137,6 @@ console.log(p.lastChild.id);
       
       <a href="/2016/06/21/DOM/" class="archive-article-date">
   	<time datetime="2016-06-21T11:56:51.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-21</time>
-</a>
-      
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-message" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/10/message/">message</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##简易留言板的实现<br>今天就是根据上一篇文章做个实例根据DOM节点</p>
-<p>html部分</p>
-<pre><code>&lt;div class=&quot;box&quot;&gt;
-    &lt;input type=&quot;text&quot; name=&quot;&quot; placeholder=&quot;留言&quot;&gt;
-    &lt;input type=&quot;button&quot; name=&quot;&quot; value=&quot;提交&quot;&gt;
-    &lt;ul class=&quot;list&quot;&gt;&lt;/ul&gt;
-&lt;/div&gt;
-</code></pre><p>css模块</p>
-<pre><code>*{
-        margin: 0;
-        padding: 0;
-    }
-    .box{
-        width: 600px;
-        min-height: 300px;
-        border: 1px solid red;
-        margin: 50px auto 0;
-    }
-    [type=&quot;text&quot;]{
-        border: 10px solid #000;
-        border-radius: 20px;
-        height: 40px;
-        font-size: 24px;
-        width: 400px;
-    }
-    [type=&quot;button&quot;]{
-        border: 10px solid #000;
-        border-radius: 20px;
-        height: 60px;
-        font-size: 24px;
-        width: 120px;
-    }
-    ul li{
-        height: 40px;
-        line-height: 40px;
-        padding-left: 10px;
-        border-bottom: 1px solid red;
-        font-size: 24px;
-        position: relative;
-    }
-    ul li:nth-child(odd){
-        /*odd 奇数  evet 偶数*/
-        background: lightblue;
-    }
-    ul li:nth-child(even){
-        /*odd 奇数  evet 偶数*/
-        background: cyan;
-    }
-     ul li div{
-         width: 80px;
-         height: 40px;
-         background: gray;
-        font-size: 24px;
-        color: black;
-        position: absolute;
-        right: 0px;
-        top: 0px;
-        text-align: center;
-        line-height: 40px; 
-    }
-</code></pre><p>js模块</p>
-<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
-var Ul=document.querySelector(&quot;.list&quot;);
-var btn=Ul.previousElementSibling;
-btn.onclick=function(){
-    var text=this.previousElementSibling.value;
-
-    var a=document.createElement(&quot;a&quot;);
-    var remove=document.createElement(&quot;div&quot;);
-    a.href=&quot;#&quot;;
-    var li=document.createElement(&quot;li&quot;);
-    var date=new Date();
-    a.innerText=date.getHours()+&quot;:&quot;+date.getMinutes()+&quot;:&quot;+date.getSeconds();
-    li.innerText=text;
-    remove.innerText=&quot;删除&quot;;
-    li.appendChild(a);
-    li.appendChild(remove);
-    Ul.appendChild(li);
-    Ul.insertBefore(li,Ul.firstChild);
-    remove.onclick=function(){
-        Ul.removeChild(li);
-    }
-}
-
-&lt;/script&gt;
-</code></pre><p>这些代码中用到的DOM节点并不多但是是最常用的知识点很实用，这里面的逻辑也比较直接，易懂</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/06/10/message/" class="archive-article-date">
-  	<time datetime="2016-06-10T12:09:50.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-10</time>
 </a>
       
       
