@@ -139,6 +139,184 @@
       <div class="body-wrap">
         
   
+    <article id="post-compare" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/15/compare/">compare</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##Javascript中call，apply，bind方法的详解与总结</p>
+<p>以下内容会分为如下小节：<br>1.call/apply/bind方法的来源<br>2.Function.prototype.call()<br>3.Function.prototype.apply()<br>　　3.1：找出数组中的最大数<br>　　3.2：将数组的空元素变为undefined<br>　　3.3：转换类似数组的对象</p>
+<p>4.Function.prototype.bind()<br>5.绑定回调函数的对象<br>6.call，apply，bind方法的联系和区别</p>
+<p>1.call/apply/bind方法的来源</p>
+<p>首先，在使用call，apply，bind方法时，我们有必要知道这三个方法究竟是来自哪里？为什么可以使用的到这三个方法？<br>call，apply，bind这三个方法其实都是继承自Function.prototype中的，属于实例方法。</p>
+<pre><code> console.log(Function.prototype.hasOwnProperty(&apos;call&apos;)) //true
+console.log(Function.prototype.hasOwnProperty(&apos;apply&apos;)) //true
+console.log(Function.prototype.hasOwnProperty(&apos;bind&apos;)) //true
+</code></pre><p>上面代码中，都返回了true，表明三种方法都是继承自Function.prototype的。当然，普通的对象，函数，数组都继承了Function.prototype对象中的三个方法，所以这三个方法都可以在对象，数组，函数中使用。</p>
+<p>2.Function.prototype.call()<br>　函数实例的call方法，可以指定该函数内部this的指向（即函数执行时所在的作用域），然后在所指定的作用域中，调用该函数。并且会立即执行该函数。</p>
+<pre><code>var keith = {rascal: 123};
+var rascal = 456;
+function a() {
+console.log(this.rascal);
+}
+a(); //456
+a.call(); //456
+a.call(null); //456
+a.call(undefined); //456
+a.call(this); //456
+a.call(keith); //123
+</code></pre><p>上面代码中，a函数中的this关键字，如果指向全局对象，返回结果为456。可以看到，如果call方法没有参数，或者参数为null或undefined或者this，则等同于指向全局对象。如果使用call方法将this关键字指向keith对象，也就是将该函数执行时所在的作用域为keith对象，返回结果为123。</p>
+<p>call()方法可以传递两个参数。第一个参数是指定函数内部中this的指向（也就是函数执行时所在的作用域），第二个参数是函数调用时需要传递的参数。</p>
+<pre><code>function keith(a, b) {
+    console.log(a + b);
+}
+keith.call(null, 1, 2); //3
+</code></pre><p>第一个参数是必须的，可以是null，undefined，this，但是不能为空。设置为null，undefined，this表明函数keith此时处于全局作用域。第二个参数中必须一个个添加。而在apply中必须以数组的形式添加。</p>
+<p>call方法的一个应用是调用对象的原生方法。也可以用于将类数组对象转换为数组。</p>
+<pre><code>var obj = {};
+console.log(obj.hasOwnProperty(&apos;toString&apos;)); //false
+obj.hasOwnProperty = function() {
+    return true;
+}
+console.log(obj.hasOwnProperty(&apos;toString&apos;)); //true
+console.log(Object.prototype.hasOwnProperty.call(obj, &apos;toString&apos;)); //false
+</code></pre><p>上面代码中，hasOwnProperty是obj对象继承的方法，如果这个方法一旦被覆盖，就不会得到正确结果。call方法可以解决这个方法，它将hasOwnProperty方法的原始定义放到obj对象上执行，这样无论obj上有没有同名方法，都不会影响结果。要注意的是，hasOwnProperty是Object.prototype原生对象的方法，而call是继承自Function.prototype的方法。</p>
+<p>3.Function.prototype.apply()</p>
+<p>apply方法的作用与call方法类似，也是改变this指向（函数执行时所在的作用域），然后在指定的作用域中，调用该函数。同时也会立即执行该函数。唯一的区别就是，它接收一个数组作为函数执行时的参数。</p>
+<p>apply方法的第一个参数也是this所要指向的那个对象，如果设为null或undefined或者this，则等同于指定全局对象。第二个参数则是一个数组，该数组的所有成员依次作为参数，在调用时传入原函数。原函数的参数，在call方法中必须一个个添加，但是在apply方法中，必须以数组形式添加。</p>
+<p>看一下call，apply的细微差别。</p>
+<pre><code>function keith(a, b) {
+    console.log(a + b);
+}
+    keith.call(null, 2, 3); //5
+    keith.apply(null, [2, 3]); //5
+</code></pre><p>上面代码中，第一个参数为null，指向全局作用域；第二个参数传入的形式稍稍不同。</p>
+<p>apply方法有以下应用。<br>3.1：找出数组中的最大数</p>
+<pre><code>var a = [2, 4, 5, 7, 8, 10];
+console.log(Math.max.apply(null, a)); //10
+console.log(Math.max.call(null,2, 4, 5, 7, 8, 10)); //10　
+</code></pre><p>Javascript中是没有提供找出数组中最大值的方法的，结合使用继承自Function.prototype的apply和Math.max方法，就可以返回数组的最大值。<br>3.2：将数组的空元素变为undefined<br>通过apply方法，利用Array构造函数将数组的空元素变成undefined。</p>
+<pre><code>console.log(Array.apply(null, [1, , 3])); // [1, undefined, 3]
+</code></pre><p>空元素与undefined的差别在于，数组的forEach方法会跳过空元素，但是不会跳过undefined和null。因此，遍历内部元素的时候，会得到不同的结果。</p>
+<pre><code>var a = [1, , 3];
+a.forEach(function(index) {
+    console.log(index); //1,3 ，跳过了空元素。
+})
+Array.apply(null,a).forEach(function(index){
+console.log(index); ////1,undefined,3 ，将空元素设置为undefined
+})
+</code></pre><p>3.3：转换类似数组的对象<br>另外，利用数组对象的slice方法，可以将一个类似数组的对象（比如arguments对象）转为真正的数组。当然，slice方法的一个重要应用，就是将类似数组的对象转为真正的数组。call和apply都可以实现该应用。</p>
+<pre><code>console.log(Array.prototype.slice.apply({0:1,length:1})); //[1]
+console.log(Array.prototype.slice.call({0:1,length:1})); //[1]
+console.log(Array.prototype.slice.apply({0:1,length:2})); //[1,undefined]
+console.log(Array.prototype.slice.call({0:1,length:2})); //[1,undefined]
+function keith(a,b,c){
+    return arguments;
+}console.log(Array.prototype.slice.call(keith(2,3,4))); //[2,3,4]
+</code></pre><p>面代码的call，apply方法的参数都是对象，但是返回结果都是数组，这就起到了将对象转成数组的目的。从上面代码可以看到，这个方法起作用的前提是，被处理的对象必须有length属性，以及相对应的数字键。</p>
+<p>4.Function.prototype.bind()<br>bind方法用于指定函数内部的this指向（执行时所在的作用域），然后返回一个新函数。bind方法并非立即执行一个函数。</p>
+<pre><code>var keith = {
+a: 1,
+count: function() {
+    console.log(this.a++);
+    }
+};
+keith.count(); //1
+keith.count(); //2
+keith.count(); //3
+</code></pre><p>上面代码中，如果this.a指向keith对象内部的a属性，如果这个方法赋值给另外一个变量，调用时就会出错。</p>
+<pre><code> var keith = {
+ a: 1,
+ count: function() {
+ console.log(this.a++);
+ }
+};
+var f = keith.count;
+f(); //NaN
+</code></pre><p>上面代码中，如果把count方法赋值给f变量，那么this对象指向不再是keith对象了，而是window对象。而window.a默认为undefined，进行递增运算之后undefined++就等于NaN。</p>
+<p>为了解决这个问题，可以使用bind方法，将keith对象里的this绑定到keith对象上，或者是直接调用。</p>
+<pre><code>var f = keith.count.bind(keith);
+f(); //1
+f(); //2
+f(); //3
+keith.count.bind(keith)() //1
+keith.count.bind(keith)() //2
+keith.count.bind(keith)() //3
+</code></pre><p>当然，this也可以绑定到其他对象上。</p>
+<pre><code>var obj = {
+a: 100
+};
+var f = keith.count.bind(obj);
+f(); //100
+f(); //101
+f(); //102
+</code></pre><p>同样，我们也可以给bind方法传递参数，第一个参数如果为null或者undefined或者this，会将函数内部的this对象指向全局环境；第二个为调用时需要的参数，并且传递参数的形式与call方法相同。</p>
+<pre><code>function keith(a, b) {
+    return a + b;
+}
+console.log(keith.apply(null,[1,4])); //5
+console.log(keith.call(null,1,4)); //5
+console.log(keith.bind(null, 1, 4)); //keith()
+console.log(keith.bind(null, 1, 4)()); //5
+</code></pre><p>上面代码中，可以看出call，apply，bind三者的区别：call和apply方法都是在调用之后立即执行的。而bind调用之后是返回原函数，需要再调用一次才行，有点像闭包的味道，如果对闭包概念不熟悉，可以浏览这两篇文章：深入理解javascript函数参数与闭包，浅谈JavaScript的闭包函数。</p>
+<p>5.绑定回调函数的对象</p>
+<p>在这篇文章javascript中this关键字详解中，有谈及到如果在回掉函数中使用this对象，那么this对象是会指向DOM对象，也就是button对象。如果要解决回调函数中this指向问题，可以用如下方法。</p>
+<pre><code>var o = {
+f: function() {
+    console.log(this === o);
+    }
+}
+$(&apos;#button&apos;).on(&apos;click&apos;, function() {
+o.f.apply(o);
+//或者 o.f.call(o);
+//或者 o.f.bind(o)();
+});
+</code></pre><p>点击按钮以后，控制台将会显示true。由于apply方法（或者call方法）不仅绑定函数执行时所在的对象，还会立即执行函数（而bind方法不会立即执行，注意区别），因此不得不把绑定语句写在一个函数体内。</p>
+<p>6.call，apply，bind方法的联系和区别<br>　其实用于指定函数内部的this指向的问题，这三个方法都差不多，只是存在形式上的差别。读者可以将以上的例子用三种方法尝试用三种方法实现。<br>　    总结一下call，apply，bind方法：<br>　　a：第一个参数都是指定函数内部中this的指向（函数执行时所在的作用域），然后根据指定的作用域，调用该函数。</p>
+<p>　　b：都可以在函数调用时传递参数。call，bind方法需要直接传入，而apply方法需要以数组的形式传入。</p>
+<p>　　c：call，apply方法是在调用之后立即执行函数，而bind方法没有立即执行，需要将函数再执行一遍。有点闭包的味道。</p>
+<p>　　d：改变this对象的指向问题不仅有call，apply，bind方法，也可以使用that变量来固定this的指向。</p>
+<p>　    
+　    </p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/15/compare/" class="archive-article-date">
+  	<time datetime="2016-11-15T04:59:35.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-15</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-操作" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1054,111 +1232,9 @@ apply方法:
 
 
   
-    <article id="post-DOM" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/21/DOM/">JavaScript DOM节点和文档类型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##Node类型</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-&lt;div id=&quot;demo&quot;&gt;
-    &lt;ul id=&quot;contents&quot;&gt;
-          &lt;li id=&quot;li_1&quot;&gt;&lt;/li&gt;
-          &lt;li id=&quot;li_2&quot;&gt;&lt;/li&gt;
-          &lt;li id=&quot;li_3&quot;&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;p id=&quot;p_1&quot;&gt;&lt;/p&gt;&lt;p id=&quot;p_2&quot;&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;script type=&quot;text/javascript&quot; src=&quot;javascript_dom_1.js&quot;&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>childNodes()  获得子节点的集合</p>
-<pre><code>var ul = document.getElementById(&quot;contents&quot;);
-for(var i= 0 ; i &lt; ul.childNodes.length; i++){
-    if(ul.childNodes[i].nodeType == &quot;1&quot;){
-    console.log(ul.childNodes[i].id);    
-}
-}
-</code></pre><p>parentNode() 获得元素的父节点</p>
-<pre><code>var li = document.getElementById(&quot;li_1&quot;);
-console.log(li.parentNode.id);
-</code></pre><p>previousSibling : 获得上一个同胞节点</p>
-<p> nextSibling : 获得下一个同胞节点</p>
-<pre><code>var p1 = document.getElementById(&quot;p_1&quot;);
-
-console.log(p1.previousSibling.id);
-console.log(p1.nextSibling.id);
-</code></pre><p>firstChild:获得第一个子节点<br>lastChild:获得最后一个子节点</p>
-<pre><code>&lt;p id=&quot;demo2&quot;&gt;&lt;strong id=&quot;strong_1&quot;&gt;&lt;/strong&gt;&lt;a id=&quot;a&quot;&gt;&lt;/a&gt;&lt;strong id=&quot;strong_2&quot;&gt;&lt;/strong&gt;&lt;/p&gt;
-
-var p = document.getElementById(&quot;demo2&quot;);
-console.log(p.firstChild.id);
-console.log(p.lastChild.id);
-</code></pre><p>hasChildNodes() 判断是否有子节点 若有子元素，返回true，否则，返回false</p>
-<p>insertBefore()  在子节点前面插入节点</p>
-<pre><code>insertBefore(参数1，参数2)
-
-    参数1：要插入的节点
-    参数2：节点，表示在这个节点前面插入节点，若为null，则在末尾插入
-</code></pre><p>removeChild()   删除子节点</p>
-<pre><code>removeChild(参数1)
-
-    参数1：要删除的节点
-</code></pre><p>cloneNode() 克隆节点</p>
-<pre><code>node.cloneNode(true|false)
-
-    node:被克隆的节点
-    传入一个参数，如果是true，那么进行深复制（连同子节点一起复制），如果是false，那么进行浅复制，只复制节点本身。
-</code></pre>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/06/21/DOM/" class="archive-article-date">
-  	<time datetime="2016-06-21T11:56:51.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-21</time>
-</a>
-      
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
